@@ -109,6 +109,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "city-playgrounds:build:production",
+            "firebaseProject": "city-playgrounds",
+            "firebaseHostingSite": "city-playgrounds"
+          }
         }
       }
     }

@@ -41,4 +41,7 @@ testem.log
 .DS_Store
 Thumbs.db
 
-/semantic
+# Firebase
+.firebase
+*-debug.log
+.runtimeconfig.json

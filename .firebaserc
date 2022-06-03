@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "city-playgrounds": {
+      "hosting": {
+        "city-playgrounds": [
+          "city-playgrounds"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "city-playgrounds"
+  }
+}
