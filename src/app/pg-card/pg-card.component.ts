@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PlaygroundDef } from '../pg-list/pg-list.component';
+import { PlaygroundDef } from '../models/playground-def';
+import { DatabaseService } from '../services/database.service';
 
 @Component({
   selector: 'app-pg-card',
@@ -9,14 +10,14 @@ import { PlaygroundDef } from '../pg-list/pg-list.component';
 export class PgCardComponent implements OnInit {
   @Input() playground?: PlaygroundDef;
 
-  constructor() {}
+  constructor(private databaseService: DatabaseService) {}
 
   ngOnInit(): void {}
 
   getParkWebsiteURL(): string {
     return (
       'https://www.ankenyiowa.gov/Home/Components/FacilityDirectory/FacilityDirectory/' +
-      this.playground?.id.toString()
+      this.playground?.id?.toString()
     );
   }
 

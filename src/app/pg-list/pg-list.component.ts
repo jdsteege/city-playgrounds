@@ -1,14 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import pgDataRaw from '../../assets/ankeny_playgrounds.json';
-
-export interface PlaygroundDef {
-  id: number;
-  name: string;
-  imageUrl: string;
-  address: string;
-  latitude: number;
-  longitude: number;
-}
+// import pgDataRaw from '../../assets/ankeny_playgrounds.json';
+import { DatabaseService } from 'src/app/services/database.service';
+import { PlaygroundDef } from 'src/app/models/playground-def';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-pg-list',
@@ -16,9 +10,27 @@ export interface PlaygroundDef {
   styleUrls: ['./pg-list.component.scss'],
 })
 export class PgListComponent implements OnInit {
-  pgData: PlaygroundDef[] = pgDataRaw;
+  // pgData: PlaygroundDef[] = pgDataRaw.playgrounds;
 
-  constructor() {}
+  playgrounds?: PlaygroundDef[];
 
-  ngOnInit(): void {}
+  constructor(private databaseService: DatabaseService) {}
+
+  ngOnInit(): void {
+    this.retrievePlaygrounds();
+  }
+
+  retrievePlaygrounds(): void {
+    this.databaseService
+      .getAll()
+      .snapshotChanges()
+      .pipe(
+        map((changes) =>
+          changes.map((c) => ({ key: c.payload.key, ...c.payload.val() }))
+        )
+      )
+      .subscribe((data) => {
+        this.playgrounds = data;
+      });
+  }
 }
