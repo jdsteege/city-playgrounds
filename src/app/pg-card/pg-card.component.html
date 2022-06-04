@@ -29,7 +29,9 @@
         <span>[{{ hhData?.passport }}]</span>
       </div>
       <div class="meta">
-        <span class="address">{{ pgDef?.address }}</span>
+        <a target="_blank" href="{{ getGoogleMapsURL() }}">{{
+          pgDef?.address
+        }}</a>
       </div>
       <div class="description">{{ hhData }}</div>
     </div>
@@ -40,13 +42,6 @@
         href="{{ getParkWebsiteURL() }}"
       >
         Park Website
-      </a>
-      <a
-        class="ui inverted button"
-        target="_blank"
-        href="{{ getGoogleMapsURL() }}"
-      >
-        Google Maps
       </a>
     </div>
   </div>

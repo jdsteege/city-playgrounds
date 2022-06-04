@@ -13,8 +13,8 @@
       "name": "Briarwood Park",
       "imageUrl": "https://www.ankenyiowa.gov/home/showpublishedimage/394/635265127953530000",
       "address": "2701 NE Oak Dr. Ankeny, IA 50021",
-      "latitude": 41.752123,
-      "longitude": -93.596739
+      "latitude": 41.75290059802487,
+      "longitude": -93.59590157941354
     },
     {
       "id": "40",
@@ -29,8 +29,8 @@
       "name": "Georgetown Park",
       "imageUrl": "https://www.ankenyiowa.gov/home/showpublishedimage/404/635265128028600000",
       "address": "2625 NW Ash Dr. Ankeny, IA 50023",
-      "latitude": 41.7462831,
-      "longitude": -93.6099933
+      "latitude": 41.753425625859784,
+      "longitude": -93.60911803703104
     },
     {
       "id": "46",
@@ -45,8 +45,8 @@
       "name": "Greentree Park",
       "imageUrl": "https://www.ankenyiowa.gov/home/showpublishedimage/408/635265128064030000",
       "address": "1914 NW Hickory Ln Ankeny, IA 50023",
-      "latitude": 41.7423457,
-      "longitude": -93.6269383
+      "latitude": 41.74270522595603,
+      "longitude": -93.62592508358308
     },
     {
       "id": "50",
@@ -61,8 +61,8 @@
       "name": "Hawkeye Park",
       "imageUrl": "https://www.ankenyiowa.gov/home/showpublishedimage/412/635265128099170000",
       "address": "400 NW Lakeshore Dr. Ankeny, IA 50023",
-      "latitude": 41.7354,
-      "longitude": -93.6079113
+      "latitude": 41.73348242618499,
+      "longitude": -93.60833422673399
     },
     {
       "id": "56",
@@ -77,8 +77,8 @@
       "name": "Michael Park",
       "imageUrl": "https://www.ankenyiowa.gov/home/showpublishedimage/420/635265128176470000",
       "address": "700 NE Michael Dr. Ankeny, IA 50021",
-      "latitude": 41.7372562,
-      "longitude": -93.5862785
+      "latitude": 41.737362205244985,
+      "longitude": -93.58781470825103
     },
     {
       "id": "64",
@@ -101,8 +101,8 @@
       "name": "Prairie Ridge Sports Complex",
       "imageUrl": "https://www.ankenyiowa.gov/home/showpublishedimage/488/635265800542570000",
       "address": "1510 NW Ash Drive and frontage along 1200 block of NW 18th ST Ankeny, IA 50021",
-      "latitude": 41.74337,
-      "longitude": -93.61403
+      "latitude": 41.74420152265531,
+      "longitude": -93.61252855008607
     },
     {
       "id": "78",
@@ -197,16 +197,16 @@
       "name": "Miracle Park",
       "imageUrl": "https://www.ankenyiowa.gov/home/showpublishedimage/2085/635995974340330000",
       "address": "300 NW School St Ankeny, IA 50023",
-      "latitude": 41.7352111,
-      "longitude": -93.6037578
+      "latitude": 41.7342259201054,
+      "longitude": -93.60551459608305
     },
     {
       "id": "595",
       "name": "Crestbruck Park",
       "imageUrl": "https://www.ankenyiowa.gov/home/showpublishedimage/3403/636542908195570000",
       "address": "1001 NE Crestmoor Place Ankeny, IA 50023",
-      "latitude": 41.7462854,
-      "longitude": -93.5952861
+      "latitude": 41.7398647937964,
+      "longitude": -93.59200512620518
     },
     {
       "id": "1858",
@@ -237,8 +237,8 @@
       "name": "Centennial Park",
       "imageUrl": "https://lh5.googleusercontent.com/p/AF1QipOGIf4YBwjksajB-ZH6raZ95WKGTLoGwD4vnUwb=w203-h152-k-no",
       "address": "2202 NW Reinhart Dr. Ankeny, IA 50023",
-      "latitude": 41.7553268,
-      "longitude": -93.607639
+      "latitude": 41.75250049242527,
+      "longitude": -93.6295175418619
     }
   ]
 }

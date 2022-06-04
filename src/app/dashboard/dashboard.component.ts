@@ -6,17 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  latLong: string = 'loading...';
-
   constructor() {}
 
-  ngOnInit(): void {
-    this.latLong = 'no support';
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        this.latLong = position.coords.longitude.toString();
-        this.latLong += ', ' + position.coords.latitude.toString();
-      });
-    }
-  }
+  ngOnInit(): void {}
 }
