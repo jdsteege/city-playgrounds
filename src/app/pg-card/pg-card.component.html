@@ -1,22 +1,3 @@
-<!-- <mat-card class="playground-card">
-  <mat-card-title-group>
-    <mat-card-title>{{ playground?.name }}</mat-card-title>
-    <mat-card-subtitle>{{ playground?.address }}</mat-card-subtitle>
-    <img class="small-image" src="{{ playground?.imageUrl }}" />
-  </mat-card-title-group>
-  <mat-card-content>
-    Park nickname, last visited, Passport word
-  </mat-card-content>
-  <mat-card-actions align="end">
-    <a mat-button target="_blank" href="{{ getParkWebsiteURL() }}"
-      >Park Website</a
-    >
-    <a mat-button target="_blank" href="{{ getGoogleMapsURL() }}"
-      >Google Maps</a
-    >
-  </mat-card-actions>
-</mat-card> -->
-
 <div class="playground-card">
   <div class="ui card inverted">
     <div class="image">
@@ -43,6 +24,9 @@
       >
         Park Website
       </a>
+      <!-- <a class="ui inverted button" routerLink="/edit/{{ pgDef?.id }}">
+        Edit
+      </a> -->
     </div>
   </div>
 </div>

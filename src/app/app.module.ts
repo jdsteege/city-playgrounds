@@ -20,6 +20,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { HouseholdLoginComponent } from './household-login/household-login.component';
+import { AppRoutingModule } from './app-routing.module';
+import { EditHouseholdDataComponent } from './edit-household-data/edit-household-data.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,7 @@ import { HouseholdLoginComponent } from './household-login/household-login.compo
     PgListComponent,
     PgCardComponent,
     HouseholdLoginComponent,
+    EditHouseholdDataComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +52,8 @@ import { HouseholdLoginComponent } from './household-login/household-login.compo
     MatButtonModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
+    AppRoutingModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

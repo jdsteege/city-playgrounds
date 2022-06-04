@@ -1,3 +1,24 @@
 <div>
-  <app-dashboard></app-dashboard>
+  <div class="ui top fixed inverted menu">
+    <div class="header item">Playgrounds - Ankeny</div>
+    <div class="toolbar-spacer"></div>
+    <div class="ui simple dropdown item">
+      <div class="text">Menu</div>
+      <i class="dropdown icon"></i>
+
+      <div class="left menu">
+        <div class="item">
+          <app-household-login></app-household-login>
+        </div>
+
+        <div class="item">
+          <div class="ui primary button inverted">Check In</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="inverted-background">
+    <router-outlet></router-outlet>
+  </div>
 </div>

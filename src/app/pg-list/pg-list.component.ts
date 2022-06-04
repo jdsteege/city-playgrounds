@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from 'src/app/services/database.service';
 import { PlaygroundDef } from '../models/playground-def';
-import pgDefsJson from '../../assets/ankeny_playgrounds.json';
 import { HouseholdPgData } from 'src/app/models/household-pg-data';
 import { map } from 'rxjs/operators';
+//
+import pgDefsJson from '../../assets/ankeny_playgrounds.json';
 
 @Component({
   selector: 'app-pg-list',
@@ -13,8 +14,8 @@ import { map } from 'rxjs/operators';
 export class PgListComponent implements OnInit {
   playgroundDefs: PlaygroundDef[] = pgDefsJson.playgrounds;
   allHouseholdData?: HouseholdPgData[];
-  currentLat: number = 41.75696406431588;
-  currentLong: number = -93.60766776030053;
+  currentLat: number = 0;
+  currentLong: number = 0;
 
   constructor(private databaseService: DatabaseService) {}
 
@@ -31,7 +32,6 @@ export class PgListComponent implements OnInit {
       this.sortDefsByDistance();
     }
 
-    console.log(this.currentLat + ', ' + this.currentLong);
     this.retrieveHHData();
   }
 
