@@ -1,5 +1,5 @@
 export class PlaygroundDef {
-  id?: number;
+  id?: string;
   name?: string;
   imageUrl?: string;
   address?: string;

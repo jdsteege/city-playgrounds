@@ -19,6 +19,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { HouseholdLoginComponent } from './household-login/household-login.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
     DashboardComponent,
     PgListComponent,
     PgCardComponent,
+    HouseholdLoginComponent,
   ],
   imports: [
     BrowserModule,
