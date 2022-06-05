@@ -4,6 +4,7 @@ import { PlaygroundDef } from '../models/playground-def';
 //
 import pgDefsJson from '../../assets/ankeny_playgrounds.json';
 import { Observable } from 'rxjs';
+import { Household } from '../models/household-pg-data';
 
 @Component({
   selector: 'app-pg-list',

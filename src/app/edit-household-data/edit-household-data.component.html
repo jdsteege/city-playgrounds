@@ -1,36 +1,48 @@
-<h1 class="ui inverted header">{{ pgDef?.name }}</h1>
-
 <div class="ui inverted compact segment">
-  <form class="ui inverted form">
-    <div class="fields">
-      <div class="field">
-        <label>Passport</label>
-        <input
-          type="text"
-          name="hhd-passport"
-          placeholder="Passport"
-          value="{{ hhData?.passport }}"
-        />
-      </div>
-      <div class="field">
+  <h1 class="ui centered header">{{ pgDef?.name }}</h1>
+  <div class="ui medium centered image">
+    <img src="{{ pgDef?.imageUrl }}" />
+  </div>
+  <!-- <div class="ui">
+    {{ hhData | async | json }}
+  </div> -->
+</div>
+
+<div [hidden]="submitted">
+  <div class="ui inverted compact segment">
+    <form class="ui inverted form" (ngSubmit)="onSubmit()" #hhForm="ngForm">
+      <div class="fields">
+        <div class="field">
+          <label>Passport</label>
+          <input
+            type="text"
+            id="hhd-passport"
+            name="hhd-passport"
+            placeholder="Passport"
+            [(ngModel)]="passport"
+          />
+        </div>
+        <!-- <div class="field">
         <label>Nickname</label>
         <input
           type="text"
           name="hhd-nickname"
           placeholder="Nickname"
-          value="{{ hhData?.nickname }}"
+          value="{{ (hhData | async)?.nickname }}"
         />
+      </div> -->
       </div>
-    </div>
-    <button class="ui negative left floated button" routerLink="/">
-      Cancel
-    </button>
-    <button
-      class="ui primary right floated button"
-      type="submit"
-      (submit)="doSubmit()"
-    >
-      Save
-    </button>
-  </form>
+      <button class="ui negative left floated button" routerLink="/">
+        Cancel
+      </button>
+      <button class="ui primary right floated button" type="submit">
+        Save
+      </button>
+    </form>
+  </div>
+</div>
+
+<div class="ui inverted segment" [hidden]="!submitted">
+  <h2>Saved changes.</h2>
+  <button class="ui primary button" routerLink="/">Done</button>
 </div>

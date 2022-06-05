@@ -17,7 +17,13 @@ export class DatabaseService {
   }
 
   get(pgId: string): AngularFireObject<HouseholdPgData> {
-    return this.db.object('/households/steege_family/' + pgId);
+    return this.db.object('/households/steege_family/playgrounds/' + pgId);
+  }
+
+  update(pgId: string, value: any): Promise<void> {
+    return this.db
+      .object('/households/steege_family/playgrounds/' + pgId)
+      .update(value);
   }
 
   // update(key: string, value: any): Promise<void> {
