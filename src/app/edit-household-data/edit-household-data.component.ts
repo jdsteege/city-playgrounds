@@ -14,7 +14,7 @@ import pgDefsJson from '../../assets/ankeny_playgrounds.json';
   styleUrls: ['./edit-household-data.component.scss'],
 })
 export class EditHouseholdDataComponent implements OnInit {
-  playgroundId: string | null = '';
+  playgroundId: string = '';
   playgroundDefs: PlaygroundDef[] = pgDefsJson.playgrounds;
   pgDef?: PlaygroundDef;
   hhData?: HouseholdPgData;
@@ -26,7 +26,7 @@ export class EditHouseholdDataComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.playgroundId = this.route.snapshot.paramMap.get('pgid');
+    this.playgroundId = this.route.snapshot.paramMap.get('pgid') ?? '';
 
     for (const pgd of this.playgroundDefs) {
       if (pgd.id == this.playgroundId) {
@@ -38,21 +38,7 @@ export class EditHouseholdDataComponent implements OnInit {
   }
 
   retrieveHHData(): void {
-    this.databaseService
-      .getAll()
-      .snapshotChanges()
-      .pipe(
-        map((changes) =>
-          changes.map((c) => ({ key: c.payload.key, ...c.payload.val() }))
-        )
-      )
-      .subscribe((data) => {
-        for (const hhd of data) {
-          if (hhd.playground_id == this.playgroundId) {
-            this.hhData = hhd;
-          }
-        }
-      });
+    // this.hhData = this.databaseService.get(this.playgroundId).valueChanges();
   }
 
   goBack(): void {

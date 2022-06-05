@@ -2,31 +2,31 @@ import { Injectable } from '@angular/core';
 import {
   AngularFireDatabase,
   AngularFireList,
+  AngularFireObject,
 } from '@angular/fire/compat/database';
-import { HouseholdPgData } from '../models/household-pg-data';
+import { Household, HouseholdPgData } from '../models/household-pg-data';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DatabaseService {
-  private dbPath = '/households/steege_family';
-  hhDataRef: AngularFireList<HouseholdPgData>;
+  constructor(private db: AngularFireDatabase) {}
 
-  constructor(private db: AngularFireDatabase) {
-    this.hhDataRef = db.list(this.dbPath);
+  getHousehold(): AngularFireObject<Household> {
+    return this.db.object('/households/steege_family');
   }
 
-  getAll(): AngularFireList<HouseholdPgData> {
-    return this.hhDataRef;
+  get(pgId: string): AngularFireObject<HouseholdPgData> {
+    return this.db.object('/households/steege_family/' + pgId);
   }
 
-  create(hhData: HouseholdPgData): any {
-    return this.hhDataRef.push(hhData);
-  }
+  // update(key: string, value: any): Promise<void> {
+  //   return this.hhDataList.update(key, value);
+  // }
 
-  update(key: string, value: any): Promise<void> {
-    return this.hhDataRef.update(key, value);
-  }
+  // create(hhData: HouseholdPgData): any {
+  //   return this.hhDataRef.push(hhData);
+  // }
 
   // delete(key: string): Promise<void> {
   //   return this.hhDataRef.remove(key);

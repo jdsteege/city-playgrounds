@@ -1,8 +1,5 @@
 <div class="ui stackable doubling four column centered grid">
   <div *ngFor="let pgDef of playgroundDefs">
-    <app-pg-card
-      [pgDef]="pgDef"
-      [hhData]="getHouseholdDataForPlayground(pgDef.id)"
-    ></app-pg-card>
+    <app-pg-card [pgDef]="pgDef" [household]="household | async"></app-pg-card>
   </div>
 </div>

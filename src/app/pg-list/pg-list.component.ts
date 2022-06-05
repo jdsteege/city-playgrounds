@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from 'src/app/services/database.service';
 import { PlaygroundDef } from '../models/playground-def';
-import { HouseholdPgData } from 'src/app/models/household-pg-data';
-import { map } from 'rxjs/operators';
 //
 import pgDefsJson from '../../assets/ankeny_playgrounds.json';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-pg-list',
@@ -13,11 +12,13 @@ import pgDefsJson from '../../assets/ankeny_playgrounds.json';
 })
 export class PgListComponent implements OnInit {
   playgroundDefs: PlaygroundDef[] = pgDefsJson.playgrounds;
-  allHouseholdData?: HouseholdPgData[];
+  household: Observable<any>;
   currentLat: number = 0;
   currentLong: number = 0;
 
-  constructor(private databaseService: DatabaseService) {}
+  constructor(private databaseService: DatabaseService) {
+    this.household = this.databaseService.getHousehold().valueChanges();
+  }
 
   ngOnInit(): void {
     if (this.currentLat == 0 && this.currentLong == 0) {
@@ -31,8 +32,6 @@ export class PgListComponent implements OnInit {
     } else {
       this.sortDefsByDistance();
     }
-
-    this.retrieveHHData();
   }
 
   sortDefsByDistance() {
@@ -80,33 +79,5 @@ export class PgListComponent implements OnInit {
 
     // calculate the result
     return c * r;
-  }
-
-  retrieveHHData(): void {
-    this.databaseService
-      .getAll()
-      .snapshotChanges()
-      .pipe(
-        map((changes) =>
-          changes.map((c) => ({ key: c.payload.key, ...c.payload.val() }))
-        )
-      )
-      .subscribe((data) => {
-        this.allHouseholdData = data;
-      });
-  }
-
-  getHouseholdDataForPlayground(
-    playgroundId: string | undefined
-  ): HouseholdPgData | undefined {
-    if (playgroundId && this.allHouseholdData) {
-      for (const hhd of this.allHouseholdData) {
-        if (hhd.playground_id == playgroundId) {
-          return hhd;
-        }
-      }
-    }
-
-    return undefined;
   }
 }

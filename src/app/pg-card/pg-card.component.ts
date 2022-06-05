@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { HouseholdPgData } from '../models/household-pg-data';
+import { Household, HouseholdPgData } from '../models/household-pg-data';
 import { PlaygroundDef } from '../models/playground-def';
 
 @Component({
@@ -8,12 +8,19 @@ import { PlaygroundDef } from '../models/playground-def';
   styleUrls: ['./pg-card.component.scss'],
 })
 export class PgCardComponent implements OnInit {
-  @Input() pgDef?: PlaygroundDef;
-  @Input() hhData?: HouseholdPgData;
+  @Input() pgDef: PlaygroundDef = new PlaygroundDef();
+  @Input() household: Household = new Household();
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  getHhPgData(): HouseholdPgData | undefined {
+    if (this.household?.playgrounds) {
+      return this.household.playgrounds[this.pgDef.id];
+    }
+    return undefined;
+  }
 
   getParkWebsiteURL(): string {
     return (
