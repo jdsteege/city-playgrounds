@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { household } from './services/database.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'City Playgrounds';
+
+  householdId: string = household.id;
+  isLoggedIn: boolean = household?.id != null && household.id.length > 0;
 }

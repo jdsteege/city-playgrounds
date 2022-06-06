@@ -1,1 +1,17 @@
-<p>household-login works!</p>
+<div class="ui inverted compact segment">
+  <form class="ui inverted form" (ngSubmit)="onSubmit()" #loginForm="ngForm">
+    <div class="fields">
+      <div class="field">
+        <label>Household ID</label>
+        <input
+          type="text"
+          id="hhId"
+          name="hhId"
+          placeholder="Household"
+          [(ngModel)]="hhidInput"
+        />
+      </div>
+    </div>
+    <button class="ui primary right floated button" type="submit">Save</button>
+  </form>
+</div>

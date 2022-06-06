@@ -1,5 +1,11 @@
 <div class="ui inverted compact segment">
   <h1 class="ui centered header">{{ pgDef?.name }}</h1>
+  <a
+    class="ui centered header"
+    target="_blank"
+    href="{{ getGoogleMapsURL() }}"
+    >{{ pgDef?.address }}</a
+  >
   <div class="ui medium centered image">
     <img src="{{ pgDef?.imageUrl }}" />
   </div>
@@ -22,15 +28,26 @@
             [(ngModel)]="passport"
           />
         </div>
-        <!-- <div class="field">
-        <label>Nickname</label>
+        <div class="field">
+          <label>Nickname</label>
+          <input
+            type="text"
+            id="hhd-nickname"
+            name="hhd-nickname"
+            placeholder="Nickname"
+            [(ngModel)]="nickname"
+          />
+        </div>
+      </div>
+      <div class="field">
+        <label>Notes</label>
         <input
           type="text"
-          name="hhd-nickname"
-          placeholder="Nickname"
-          value="{{ (hhData | async)?.nickname }}"
+          id="hhd-notes"
+          name="hhd-notes"
+          placeholder="Notes"
+          [(ngModel)]="notes"
         />
-      </div> -->
       </div>
       <button class="ui negative left floated button" routerLink="/">
         Cancel

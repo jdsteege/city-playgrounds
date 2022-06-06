@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import {
   AngularFireDatabase,
-  AngularFireList,
   AngularFireObject,
 } from '@angular/fire/compat/database';
 import { Household, HouseholdPgData } from '../models/household-pg-data';
+
+export var household: any = { id: localStorage.getItem('householdId') };
 
 @Injectable({
   providedIn: 'root',
@@ -12,17 +13,23 @@ import { Household, HouseholdPgData } from '../models/household-pg-data';
 export class DatabaseService {
   constructor(private db: AngularFireDatabase) {}
 
+  hasHousehold(): boolean {
+    return household?.id != null && household?.id?.length > 0;
+  }
+
   getHousehold(): AngularFireObject<Household> {
-    return this.db.object('/households/steege_family');
+    return this.db.object('/households/' + household.id);
   }
 
   get(pgId: string): AngularFireObject<HouseholdPgData> {
-    return this.db.object('/households/steege_family/playgrounds/' + pgId);
+    return this.db.object(
+      '/households/' + household.id + '/playgrounds/' + pgId
+    );
   }
 
   update(pgId: string, value: any): Promise<void> {
     return this.db
-      .object('/households/steege_family/playgrounds/' + pgId)
+      .object('/households/' + household.id + '/playgrounds/' + pgId)
       .update(value);
   }
 

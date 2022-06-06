@@ -26,6 +26,8 @@ export class EditHouseholdDataComponent implements OnInit, OnDestroy {
 
   submitted: boolean = false;
   passport: string = '';
+  nickname: string = '';
+  notes: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -51,7 +53,11 @@ export class EditHouseholdDataComponent implements OnInit, OnDestroy {
   onSubmit(): void {
     this.submitted = true;
 
-    this.databaseService.update(this.playgroundId, { passport: this.passport });
+    this.databaseService.update(this.playgroundId, {
+      passport: this.passport,
+      nickname: this.nickname,
+      notes: this.notes,
+    });
   }
 
   ngOnInit(): void {}
@@ -62,5 +68,12 @@ export class EditHouseholdDataComponent implements OnInit, OnDestroy {
 
   goBack(): void {
     this.location.back();
+  }
+
+  getGoogleMapsURL(): string {
+    const encodedNameAndAddress: string = encodeURIComponent(
+      this.pgDef?.name + ', ' + this.pgDef?.address
+    );
+    return 'https://www.google.com/maps/search/' + encodedNameAndAddress;
   }
 }

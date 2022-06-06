@@ -7,8 +7,9 @@
       <i class="dropdown icon"></i>
 
       <div class="left menu">
-        <div class="item">
-          <app-household-login></app-household-login>
+        <div class="item" *ngIf="isLoggedIn">Welcome, {{ householdId }}</div>
+        <div class="item" *ngIf="!isLoggedIn">
+          <a class="ui primary button inverted" routerLink="/login">Log In</a>
         </div>
 
         <div class="item">
