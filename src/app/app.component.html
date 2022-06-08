@@ -1,5 +1,5 @@
 <div>
-  <div class="ui top fixed inverted menu">
+  <div class="ui top fixed menu">
     <div class="header item">Playgrounds</div>
     <!-- <div class="toolbar-spacer"></div> -->
     <div class="ui simple dropdown item floated right">
@@ -9,7 +9,7 @@
       <div class="left menu">
         <div class="item" *ngIf="isLoggedIn">Welcome, {{ householdId }}</div>
         <div class="item" *ngIf="!isLoggedIn">
-          <a class="ui primary button inverted" routerLink="/login">Log In</a>
+          <a class="ui primary button" routerLink="/login">Log In</a>
         </div>
 
         <div class="item">
@@ -22,7 +22,7 @@
         </div>
 
         <div class="item">
-          <div class="ui primary button inverted">Check In</div>
+          <div class="ui primary button">Check In</div>
         </div>
       </div>
     </div>
