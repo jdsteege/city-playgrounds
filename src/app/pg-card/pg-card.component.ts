@@ -22,6 +22,11 @@ export class PgCardComponent implements OnInit {
     return undefined;
   }
 
+  trimmedAddress(): string {
+    const a = this.pgDef.address;
+    return a.substring(0, a.indexOf('Ankeny, IA') - 1);
+  }
+
   getParkWebsiteURL(): string {
     return (
       'https://www.ankenyiowa.gov/Home/Components/FacilityDirectory/FacilityDirectory/' +

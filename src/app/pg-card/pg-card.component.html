@@ -1,32 +1,30 @@
-<div class="playground-card">
-  <div class="ui card inverted">
-    <div class="image">
-      <img src="{{ pgDef?.imageUrl }}" />
+<div class="ui horizontal card inverted">
+  <div class="image">
+    <img src="{{ pgDef?.imageUrl }}" />
+  </div>
+  <div class="content">
+    <div class="header">
+      {{ pgDef?.name }}&nbsp;&nbsp;
+      <a target="_blank" href="{{ getParkWebsiteURL() }}"
+        ><i class="external alternate small link icon inverted"></i
+      ></a>
     </div>
-    <div class="content">
-      <div class="header">{{ pgDef?.name }}</div>
-      <div class="meta">
-        <span>({{ getHhPgData()?.nickname }})</span>
-        <span>[{{ getHhPgData()?.passport }}]</span>
-      </div>
-      <div class="meta">
-        <a target="_blank" href="{{ getGoogleMapsURL() }}">{{
-          pgDef?.address
-        }}</a>
-      </div>
-      <div class="description">{{ getHhPgData() | json }}</div>
+    <div class="meta" *ngIf="getHhPgData()?.nickname as nick">
+      <span>"{{ nick }}"</span>
     </div>
-    <div class="extra content">
-      <a
-        class="ui inverted button"
-        target="_blank"
-        href="{{ getParkWebsiteURL() }}"
-      >
-        Park Website
-      </a>
-      <a class="ui inverted button" routerLink="/edit/{{ pgDef?.id }}">
-        Edit
-      </a>
+    <span class="meta" *ngIf="getHhPgData()?.passport">
+      <i class="plane icon green"></i>
+    </span>
+    <span class="meta" *ngIf="!getHhPgData()?.passport">
+      <i class="plane icon small inverted grey circular"></i>
+    </span>
+    <div class="description">
+      <a target="_blank" href="{{ getGoogleMapsURL() }}">{{
+        trimmedAddress()
+      }}</a>
     </div>
   </div>
+  <!-- <div class="extra content">
+    <a class="ui inverted button" routerLink="/edit/{{ pgDef?.id }}"> Edit </a>
+  </div> -->
 </div>

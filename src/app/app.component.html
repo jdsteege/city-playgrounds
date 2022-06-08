@@ -1,8 +1,8 @@
 <div>
   <div class="ui top fixed inverted menu">
-    <div class="header item">Playgrounds - Ankeny</div>
-    <div class="toolbar-spacer"></div>
-    <div class="ui simple dropdown item">
+    <div class="header item">Playgrounds</div>
+    <!-- <div class="toolbar-spacer"></div> -->
+    <div class="ui simple dropdown item floated right">
       <div class="text">Menu</div>
       <i class="dropdown icon"></i>
 
@@ -13,13 +13,22 @@
         </div>
 
         <div class="item">
+          <a
+            class="ui"
+            target="_blank"
+            href="https://www.ankenyiowa.gov/our-city/departments/parks-and-recreation/parks/parks-passport-challenge"
+            >Ankeny Parks Passport Website</a
+          >
+        </div>
+
+        <div class="item">
           <div class="ui primary button inverted">Check In</div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="inverted-background">
+  <div style="padding-top: 5rem">
     <router-outlet></router-outlet>
   </div>
 </div>
