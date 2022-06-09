@@ -13,7 +13,7 @@ import { Household } from '../models/household-pg-data';
 })
 export class DashboardComponent implements OnInit {
   playgroundDefs: PlaygroundDef[] = pgDefsJson.playgrounds;
-  nearestPgDef: PlaygroundDef = this.playgroundDefs[0];
+  nearestPgDef: PlaygroundDef | null = null;
   household: Observable<any>;
   currentLat: number = 0;
   currentLong: number = 0;

@@ -2,6 +2,7 @@
   <h4 class="ui header centered">Nearest Playground</h4>
 
   <app-pg-card
+    *ngIf="nearestPgDef"
     [pgDef]="nearestPgDef"
     [household]="household | async"
     class="ui centered card"
