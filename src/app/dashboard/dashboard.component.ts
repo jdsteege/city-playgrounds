@@ -36,8 +36,6 @@ export class DashboardComponent implements OnInit {
     } else {
       this.sortDefsByDistance();
     }
-
-    this.nearestPgDef = this.playgroundDefs[0];
   }
 
   sortDefsByDistance() {
@@ -59,6 +57,8 @@ export class DashboardComponent implements OnInit {
         );
       });
     }
+
+    this.nearestPgDef = this.playgroundDefs[0];
   }
 
   distance(lat1: number, lat2: number, lon1: number, lon2: number): number {
