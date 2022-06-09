@@ -1,5 +1,8 @@
 <div class="ui centered cards">
-  <div *ngFor="let pgDef of playgroundDefs">
-    <app-pg-card [pgDef]="pgDef" [household]="household | async"></app-pg-card>
-  </div>
+  <app-pg-card
+    class="ui horizontal card"
+    *ngFor="let pgDef of playgroundDefs"
+    [pgDef]="pgDef"
+    [household]="household | async"
+  ></app-pg-card>
 </div>

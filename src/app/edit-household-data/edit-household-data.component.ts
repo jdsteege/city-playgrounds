@@ -46,6 +46,8 @@ export class EditHouseholdDataComponent implements OnInit, OnDestroy {
     this.dataRef = this.databaseService.get(this.playgroundId);
     this.subscription = this.dataRef.snapshotChanges().subscribe((data) => {
       this.passport = data.payload.val()?.passport ?? '';
+      this.nickname = data.payload.val()?.nickname ?? '';
+      this.notes = data.payload.val()?.notes ?? '';
     });
     // this.hhPgData = afo.valueChanges();
   }

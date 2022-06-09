@@ -1,39 +1,37 @@
-<div class="ui horizontal card">
-  <div class="ui image">
-    <img class="ui image" src="{{ pgDef?.imageUrl }}" />
+<div class="ui image">
+  <img class="ui image" src="{{ pgDef?.imageUrl }}" />
+</div>
+<div class="content">
+  <div class="header">
+    {{ pgDef?.name }}&nbsp;&nbsp;
+    <a target="_blank" href="{{ getParkWebsiteURL() }}"
+      ><i class="external alternate small link icon"></i
+    ></a>
   </div>
-  <div class="content">
-    <div class="header">
-      {{ pgDef?.name }}&nbsp;&nbsp;
-      <a target="_blank" href="{{ getParkWebsiteURL() }}"
-        ><i class="external alternate small link icon"></i
-      ></a>
-    </div>
-    <div class="meta">
-      <span *ngIf="getHhPgData()?.nickname as nick">"{{ nick }}"</span>
-    </div>
-    <div class="description">
-      <a target="_blank" href="{{ getGoogleMapsURL() }}">{{
-        trimmedAddress()
-      }}</a>
-    </div>
-    <div class="description">
-      {{ getHhPgData()?.notes }}
-    </div>
+  <div class="meta">
+    <span *ngIf="getHhPgData()?.nickname as nick">"{{ nick }}"</span>
   </div>
+  <div class="description">
+    <a target="_blank" href="{{ getGoogleMapsURL() }}">{{
+      trimmedAddress()
+    }}</a>
+  </div>
+  <div class="description">
+    {{ getHhPgData()?.notes }}
+  </div>
+</div>
 
-  <div class="extra content compact">
-    <span *ngIf="getHhPgData()?.passport">
-      <i class="plane icon yellow"></i>
-    </span>
-    <span *ngIf="!getHhPgData()?.passport">
-      <i class="plane icon small inverted grey circular"></i>
-    </span>
-    <a
-      class="ui icon compact right floated button"
-      routerLink="/edit/{{ pgDef?.id }}"
-    >
-      <i class="edit icon"></i>
-    </a>
-  </div>
+<div class="extra content compact">
+  <span *ngIf="getHhPgData()?.passport">
+    <i class="plane icon yellow"></i>
+  </span>
+  <span *ngIf="!getHhPgData()?.passport">
+    <i class="plane icon small inverted grey circular"></i>
+  </span>
+  <a
+    class="ui icon compact right floated button"
+    routerLink="/edit/{{ pgDef?.id }}"
+  >
+    <i class="edit icon"></i>
+  </a>
 </div>
