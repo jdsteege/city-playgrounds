@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { household } from './services/database.service';
+import { DatabaseService } from './services/database.service';
+import { LocationService } from './services/location.service';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,16 @@ import { household } from './services/database.service';
 })
 export class AppComponent {
   title = 'City Playgrounds';
+  householdId: string;
 
-  householdId: string = household.id;
-  isLoggedIn: boolean = household?.id != null && household.id.length > 0;
+  constructor(
+    private databaseService: DatabaseService,
+    private locationService: LocationService
+  ) {
+    this.householdId = this.databaseService.getHouseholdId();
+  }
+
+  isLoggedIn(): boolean {
+    return this.householdId.length > 0;
+  }
 }

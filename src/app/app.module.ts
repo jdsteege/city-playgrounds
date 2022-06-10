@@ -23,6 +23,8 @@ import { HouseholdLoginComponent } from './household-login/household-login.compo
 import { AppRoutingModule } from './app-routing.module';
 import { EditHouseholdDataComponent } from './edit-household-data/edit-household-data.component';
 import { FormsModule } from '@angular/forms';
+import { DatabaseService } from './services/database.service';
+import { LocationService } from './services/location.service';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,7 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [DatabaseService, LocationService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

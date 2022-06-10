@@ -7,12 +7,12 @@
       <i class="dropdown icon"></i>
 
       <div class="left menu">
-        <div class="item" *ngIf="isLoggedIn">
+        <div class="item" *ngIf="isLoggedIn()">
           <a class="ui primary button" routerLink="/login"
             >Welcome, {{ householdId }}</a
           >
         </div>
-        <div class="item" *ngIf="!isLoggedIn">
+        <div class="item" *ngIf="!isLoggedIn()">
           <a class="ui primary button" routerLink="/login">Log In</a>
         </div>
 

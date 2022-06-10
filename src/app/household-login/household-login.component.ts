@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { household } from '../services/database.service';
+import { DatabaseService } from '../services/database.service';
 
 @Component({
   selector: 'app-household-login',
@@ -8,15 +8,18 @@ import { household } from '../services/database.service';
   styleUrls: ['./household-login.component.scss'],
 })
 export class HouseholdLoginComponent implements OnInit {
-  hhidInput: string = household.id;
+  hhidInput: string = this.databaseService.getHouseholdId();
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private databaseService: DatabaseService
+  ) {}
 
   ngOnInit(): void {}
 
   onSubmit(): void {
-    household.id = this.hhidInput;
-    localStorage.setItem('householdId', household.id);
+    this.databaseService.setHouseholdId(this.hhidInput);
+    localStorage.setItem('householdId', this.hhidInput);
     this.router.navigateByUrl('/');
   }
 }

@@ -1,3 +1,5 @@
+import { LocationService } from '../services/location.service';
+
 export class PlaygroundDef {
   id: string;
   name: string;
@@ -13,5 +15,17 @@ export class PlaygroundDef {
     this.address = '';
     this.latitude = 0;
     this.longitude = 0;
+  }
+
+  static sortDefsByDistance(
+    defArray: PlaygroundDef[],
+    locationService: LocationService
+  ): PlaygroundDef[] {
+    return defArray.sort((a, b) => {
+      return (
+        locationService.distanceTo(a.latitude, a.longitude) -
+        locationService.distanceTo(b.latitude, b.longitude)
+      );
+    });
   }
 }
