@@ -5,7 +5,6 @@ import { PlaygroundDef } from '../models/playground-def';
 import pgDefsJson from '../../assets/ankeny_playgrounds.json';
 import { Observable } from 'rxjs';
 import { Household } from '../models/household-pg-data';
-import { LocationService } from '../services/location.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -18,20 +17,27 @@ export class DashboardComponent implements OnInit {
   household: Observable<any>;
 
   showAll: boolean = false;
+  byPassport: boolean = false;
 
-  constructor(
-    private databaseService: DatabaseService,
-    private locationService: LocationService
-  ) {
+  constructor(private databaseService: DatabaseService) {
     this.household = this.databaseService.getHousehold().valueChanges();
   }
 
   ngOnInit(): void {
-    this.playgroundDefs = PlaygroundDef.sortDefsByDistance(
-      this.playgroundDefs,
-      this.locationService
+    navigator.geolocation?.watchPosition(
+      (position: GeolocationPosition) => {
+        this.playgroundDefs = PlaygroundDef.sortDefsByDistance(
+          pgDefsJson.playgrounds,
+          position.coords
+        );
+        this.nearestPgDef = this.playgroundDefs[0];
+      },
+      null,
+      {
+        enableHighAccuracy: false,
+        timeout: Infinity,
+        maximumAge: 60 * 1000,
+      }
     );
-
-    this.nearestPgDef = this.playgroundDefs[0];
   }
 }

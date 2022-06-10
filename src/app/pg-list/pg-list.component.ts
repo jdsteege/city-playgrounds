@@ -1,32 +1,68 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnChanges,
+  Input,
+  SimpleChanges,
+} from '@angular/core';
 import { DatabaseService } from 'src/app/services/database.service';
 import { PlaygroundDef } from '../models/playground-def';
 //
 import pgDefsJson from '../../assets/ankeny_playgrounds.json';
-import { Observable } from 'rxjs';
 import { Household } from '../models/household-pg-data';
-import { LocationService } from '../services/location.service';
 
 @Component({
   selector: 'app-pg-list',
   templateUrl: './pg-list.component.html',
   styleUrls: ['./pg-list.component.scss'],
 })
-export class PgListComponent implements OnInit {
+export class PgListComponent implements OnInit, OnChanges {
   playgroundDefs: PlaygroundDef[] = pgDefsJson.playgrounds;
-  household: Observable<any>;
+  household: Household = new Household();
+  @Input() filterByPassport: boolean = false;
 
-  constructor(
-    private databaseService: DatabaseService,
-    private locationService: LocationService
-  ) {
-    this.household = this.databaseService.getHousehold().valueChanges();
+  constructor(private databaseService: DatabaseService) {
+    this.databaseService
+      .getHousehold()
+      .snapshotChanges()
+      .subscribe((action) => {
+        this.household = action.payload.val() ?? new Household();
+        this.doFilter();
+      });
   }
 
   ngOnInit(): void {
-    this.playgroundDefs = PlaygroundDef.sortDefsByDistance(
-      this.playgroundDefs,
-      this.locationService
+    navigator.geolocation?.watchPosition(
+      (position: GeolocationPosition) => {
+        this.playgroundDefs = PlaygroundDef.sortDefsByDistance(
+          this.playgroundDefs,
+          position.coords
+        );
+      },
+      null,
+      {
+        enableHighAccuracy: false,
+        timeout: Infinity,
+        maximumAge: 60 * 1000,
+      }
     );
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    for (const propName in changes) {
+      if (propName === 'filterByPassport') {
+        this.doFilter();
+      }
+    }
+  }
+
+  doFilter(): void {
+    if (this.filterByPassport) {
+      this.playgroundDefs = this.playgroundDefs.filter(
+        (def) =>
+          this.household.playgrounds[def.id] == null ||
+          this.household.playgrounds[def.id]?.passport.length == 0
+      );
+    }
   }
 }

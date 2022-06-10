@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { DatabaseService } from './services/database.service';
-import { LocationService } from './services/location.service';
 
 @Component({
   selector: 'app-root',
@@ -11,10 +10,7 @@ export class AppComponent {
   title = 'City Playgrounds';
   householdId: string;
 
-  constructor(
-    private databaseService: DatabaseService,
-    private locationService: LocationService
-  ) {
+  constructor(private databaseService: DatabaseService) {
     this.householdId = this.databaseService.getHouseholdId();
   }
 

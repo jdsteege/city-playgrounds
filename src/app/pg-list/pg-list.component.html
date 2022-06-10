@@ -3,6 +3,6 @@
     class="ui horizontal card"
     *ngFor="let pgDef of playgroundDefs"
     [pgDef]="pgDef"
-    [household]="household | async"
+    [hhPgData]="household.playgrounds[pgDef.id]"
   ></app-pg-card>
 </div>

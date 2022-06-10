@@ -4,7 +4,7 @@
   <app-pg-card
     *ngIf="nearestPgDef"
     [pgDef]="nearestPgDef"
-    [household]="household | async"
+    [hhPgData]="(household | async)?.playgrounds[nearestPgDef.id]"
     class="ui centered card"
   ></app-pg-card>
 
@@ -17,13 +17,13 @@
         <i class="check icon"></i>Check In
       </div>
     </div>
-    <div class="ui button" (click)="showAll = true">
+    <div class="ui button" (click)="byPassport = false; showAll = true">
       <i class="list icon"></i> All Playgrounds
     </div>
-    <div class="ui button disabled">
-      <i class="plane icon"></i>Nearest Passport
+    <div class="ui button" (click)="byPassport = true; showAll = true">
+      <i class="plane icon"></i>Nearest Passports
     </div>
   </div>
 </div>
 
-<app-pg-list *ngIf="showAll"></app-pg-list>
+<app-pg-list *ngIf="showAll" [filterByPassport]="byPassport"></app-pg-list>

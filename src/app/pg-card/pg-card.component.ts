@@ -9,18 +9,18 @@ import { PlaygroundDef } from '../models/playground-def';
 })
 export class PgCardComponent implements OnInit {
   @Input() pgDef: PlaygroundDef = new PlaygroundDef();
-  @Input() household: Household = new Household();
+  @Input() hhPgData: HouseholdPgData | null = null;
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  getHhPgData(): HouseholdPgData | undefined {
-    if (this.household?.playgrounds) {
-      return this.household.playgrounds[this.pgDef.id];
-    }
-    return undefined;
-  }
+  // getHhPgData(): HouseholdPgData | undefined {
+  //   if (this.household?.playgrounds) {
+  //     return this.household.playgrounds[this.pgDef.id];
+  //   }
+  //   return undefined;
+  // }
 
   trimmedAddress(): string {
     const a = this.pgDef.address;

@@ -24,7 +24,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { EditHouseholdDataComponent } from './edit-household-data/edit-household-data.component';
 import { FormsModule } from '@angular/forms';
 import { DatabaseService } from './services/database.service';
-import { LocationService } from './services/location.service';
 
 @NgModule({
   declarations: [
@@ -57,7 +56,7 @@ import { LocationService } from './services/location.service';
     AppRoutingModule,
     FormsModule,
   ],
-  providers: [DatabaseService, LocationService],
+  providers: [DatabaseService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

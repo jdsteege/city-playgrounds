@@ -9,7 +9,7 @@
     ></a>
   </div>
   <div class="meta">
-    <span *ngIf="getHhPgData()?.nickname as nick">"{{ nick }}"</span>
+    <span *ngIf="hhPgData?.nickname as nick">"{{ nick }}"</span>
   </div>
   <div class="description">
     <a target="_blank" href="{{ getGoogleMapsURL() }}">{{
@@ -17,15 +17,15 @@
     }}</a>
   </div>
   <div class="description">
-    {{ getHhPgData()?.notes }}
+    {{ hhPgData?.notes }}
   </div>
 </div>
 
 <div class="extra content compact">
-  <span *ngIf="getHhPgData()?.passport">
+  <span *ngIf="hhPgData?.passport">
     <i class="plane icon yellow"></i>
   </span>
-  <span *ngIf="!getHhPgData()?.passport">
+  <span *ngIf="!hhPgData?.passport">
     <i class="plane icon small inverted grey circular"></i>
   </span>
   <a
