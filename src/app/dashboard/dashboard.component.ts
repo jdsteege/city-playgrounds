@@ -1,28 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DatabaseService } from 'src/app/services/database.service';
 import { PlaygroundDef } from '../models/playground-def';
 //
 import pgDefsJson from '../../assets/ankeny_playgrounds.json';
-import { Observable } from 'rxjs';
-import { Household } from '../models/household-pg-data';
+import { Observable, Subscription } from 'rxjs';
+import { Household, HouseholdPgData } from '../models/household-pg-data';
+import { AngularFireObject } from '@angular/fire/compat/database';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })
-export class DashboardComponent implements OnInit {
-  playgroundDefs: PlaygroundDef[] = pgDefsJson.playgrounds;
-  nearestPgDef: PlaygroundDef | null = null;
+export class DashboardComponent implements OnInit, OnDestroy {
+  private playgroundDefs: PlaygroundDef[] = pgDefsJson.playgrounds;
+  nearestPgDef: PlaygroundDef = pgDefsJson.playgrounds[0];
   nearestDistance: number = 0;
-  household: Observable<any>;
 
-  showAll: boolean = false;
-  byPassport: boolean = false;
+  private hhPgSub: Subscription | undefined = undefined;
+  householdPlaygroundData: HouseholdPgData | null = null;
 
-  constructor(private databaseService: DatabaseService) {
-    this.household = this.databaseService.getHousehold().valueChanges();
-  }
+  showList: boolean = true;
+
+  constructor(private databaseService: DatabaseService) {}
 
   ngOnInit(): void {
     navigator.geolocation?.watchPosition(
@@ -36,6 +36,10 @@ export class DashboardComponent implements OnInit {
         maximumAge: 60 * 1000,
       }
     );
+  }
+
+  ngOnDestroy(): void {
+    this.hhPgSub?.unsubscribe();
   }
 
   private findNearest(coords: GeolocationCoordinates): void {
@@ -53,5 +57,12 @@ export class DashboardComponent implements OnInit {
 
     this.nearestPgDef = result;
     this.nearestDistance = minDist;
+
+    this.hhPgSub = this.databaseService
+      .get(this.nearestPgDef.id)
+      .snapshotChanges()
+      .subscribe((data) => {
+        this.householdPlaygroundData = data.payload.val();
+      });
   }
 }

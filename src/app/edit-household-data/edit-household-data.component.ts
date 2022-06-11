@@ -59,6 +59,7 @@ export class EditHouseholdDataComponent implements OnInit, OnDestroy {
       passport: this.passport,
       nickname: this.nickname,
       notes: this.notes,
+      last_visit: Date.now(),
     });
   }
 

@@ -1,29 +1,31 @@
-<div class="ui raised segment" style="margin: 4px">
-  <h4 class="ui header centered">Nearest Playground</h4>
+<div
+  *ngIf="!showList"
+  class="ui raised segment center aligned compact-centered"
+>
+  <h3 class="ui header">Nearest Playground</h3>
+  <div class="ui text grey">
+    <i class="compass outline icon"></i>{{ nearestDistance.toFixed(1) }} miles
+  </div>
 
   <app-pg-card
     *ngIf="nearestPgDef"
     [pgDef]="nearestPgDef"
-    [hhPgData]="(household | async)?.playgrounds[nearestPgDef.id]"
-    class="ui centered card"
+    [hhPgData]="householdPlaygroundData"
+    class="ui card"
   ></app-pg-card>
 
-  <div
-    class="ui segment center aligned compact"
-    style="margin-left: auto; margin-right: auto"
-  >
-    <div style="margin-bottom: 4px">
-      <div class="ui primary button disabled">
-        <i class="check icon"></i>Check In
-      </div>
-    </div>
-    <div class="ui button" (click)="byPassport = false; showAll = true">
-      <i class="list icon"></i> All Playgrounds
-    </div>
-    <div class="ui button" (click)="byPassport = true; showAll = true">
-      <i class="plane icon"></i>Nearest Passports
-    </div>
+  <div class="ui primary button disabled" style="border-radius: 2rem">
+    <i class="check icon"></i>Check In
   </div>
 </div>
 
-<app-pg-list *ngIf="showAll" [filterByPassport]="byPassport"></app-pg-list>
+<div class="ui segment">
+  <div *ngIf="!showList" class="compact-centered">
+    <div class="ui button" (click)="showList = true">
+      <i class="list icon"></i> All Playgrounds
+    </div>
+  </div>
+  <div *ngIf="showList">
+    <app-pg-list></app-pg-list>
+  </div>
+</div>

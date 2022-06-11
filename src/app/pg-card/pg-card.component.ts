@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Household, HouseholdPgData } from '../models/household-pg-data';
 import { PlaygroundDef } from '../models/playground-def';
+import * as dayjsDuration from 'dayjs/plugin/duration';
 
 @Component({
   selector: 'app-pg-card',
@@ -39,5 +40,15 @@ export class PgCardComponent implements OnInit {
       this.pgDef?.name + ', ' + this.pgDef?.address
     );
     return 'https://www.google.com/maps/search/' + encodedNameAndAddress;
+  }
+
+  getLastVisitString(): string {
+    if ((this.hhPgData?.last_visit ?? 0) > 0) {
+      let daysSinceVisit: number =
+        (Date.now() - (this.hhPgData?.last_visit ?? 0)) / (24 * 60 * 60 * 1000);
+      return daysSinceVisit.toFixed(0) + ' days ago';
+    }
+
+    return 'Never visited';
   }
 }

@@ -21,17 +21,26 @@
   </div>
 </div>
 
-<div class="extra content compact">
-  <span *ngIf="hhPgData?.passport">
-    <i class="plane icon yellow"></i>
-  </span>
-  <span *ngIf="!hhPgData?.passport">
-    <i class="plane icon small inverted grey circular"></i>
-  </span>
-  <a
-    class="ui icon compact right floated button"
-    routerLink="/edit/{{ pgDef?.id }}"
+<div class="extra content" style="padding: 0px">
+  <div
+    class="ui horizontal basic center aligned segments"
+    style="margin-top: 8px; margin-bottom: 8px"
   >
-    <i class="edit icon"></i>
-  </a>
+    <div class="ui fitted segment" *ngIf="hhPgData?.passport">
+      <i class="plane icon fitted small yellow"></i>
+    </div>
+    <div class="ui fitted segment" *ngIf="!hhPgData?.passport">
+      <i class="plane icon fitted tiny inverted grey circular"></i>
+    </div>
+
+    <div class="ui fitted segment">
+      <i class="calendar check icon fitted"></i> {{ getLastVisitString() }}
+    </div>
+
+    <div class="ui fitted segment">
+      <a class="ui mini icon compact button" routerLink="/edit/{{ pgDef?.id }}">
+        <i class="edit icon"></i>
+      </a>
+    </div>
+  </div>
 </div>
