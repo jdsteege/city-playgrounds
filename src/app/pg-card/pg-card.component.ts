@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Household, HouseholdPgData } from '../models/household-pg-data';
 import { PlaygroundDef } from '../models/playground-def';
-import * as dayjsDuration from 'dayjs/plugin/duration';
 
 @Component({
   selector: 'app-pg-card',

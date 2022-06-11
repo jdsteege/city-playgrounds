@@ -1,10 +1,4 @@
-import {
-  Component,
-  OnInit,
-  OnChanges,
-  Input,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from 'src/app/services/database.service';
 import { PlaygroundDef } from '../models/playground-def';
 //
@@ -16,10 +10,10 @@ import { Household } from '../models/household-pg-data';
   templateUrl: './pg-list.component.html',
   styleUrls: ['./pg-list.component.scss'],
 })
-export class PgListComponent implements OnInit, OnChanges {
+export class PgListComponent implements OnInit {
   playgroundDefs: PlaygroundDef[] = pgDefsJson.playgrounds;
   household: Household = new Household();
-  @Input() filterByPassport: boolean = false;
+  filter: ListFilter = new ListFilter();
 
   constructor(private databaseService: DatabaseService) {
     this.databaseService
@@ -27,7 +21,7 @@ export class PgListComponent implements OnInit, OnChanges {
       .snapshotChanges()
       .subscribe((action) => {
         this.household = action.payload.val() ?? new Household();
-        this.doFilter();
+        this.onFilterChanged();
       });
   }
 
@@ -48,21 +42,28 @@ export class PgListComponent implements OnInit, OnChanges {
     );
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    for (const propName in changes) {
-      if (propName === 'filterByPassport') {
-        this.doFilter();
-      }
-    }
+  setFilter(passportEmpty: boolean): void {
+    this.filter = { passportEmpty };
+    this.onFilterChanged();
   }
 
-  doFilter(): void {
-    if (this.filterByPassport) {
+  onFilterChanged(): void {
+    this.playgroundDefs = pgDefsJson.playgrounds;
+
+    if (this.filter.passportEmpty && this.household.playgrounds) {
       this.playgroundDefs = this.playgroundDefs.filter(
         (def) =>
           this.household.playgrounds[def.id] == null ||
           this.household.playgrounds[def.id]?.passport.length == 0
       );
     }
+  }
+}
+
+export class ListFilter {
+  passportEmpty: boolean;
+
+  constructor() {
+    this.passportEmpty = false;
   }
 }

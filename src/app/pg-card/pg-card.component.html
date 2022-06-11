@@ -26,14 +26,28 @@
     class="ui horizontal basic center aligned segments"
     style="margin-top: 8px; margin-bottom: 8px"
   >
-    <div class="ui fitted segment" *ngIf="hhPgData?.passport">
+    <div
+      class="ui fitted segment"
+      *ngIf="hhPgData?.passport"
+      data-tooltip="Passport logged"
+      data-position="bottom center"
+    >
       <i class="plane icon fitted small yellow"></i>
     </div>
-    <div class="ui fitted segment" *ngIf="!hhPgData?.passport">
+    <div
+      class="ui fitted segment"
+      *ngIf="!hhPgData?.passport"
+      data-tooltip="Passport not logged"
+      data-position="bottom center"
+    >
       <i class="plane icon fitted tiny inverted grey circular"></i>
     </div>
 
-    <div class="ui fitted segment">
+    <div
+      class="ui fitted segment"
+      data-tooltip="How long since your last visit to this playground"
+      data-position="bottom center"
+    >
       <i class="calendar check icon fitted"></i> {{ getLastVisitString() }}
     </div>
 

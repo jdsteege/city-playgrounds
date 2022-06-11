@@ -1,5 +1,8 @@
-<div class="ui basic buttons">
-  <button class="ui button">
+<div class="ui buttons">
+  <button
+    class="{{ filter.passportEmpty ? 'primary' : '' }} ui button"
+    (click)="setFilter(!filter.passportEmpty)"
+  >
     <i class="plane icon"></i>
     Passports
   </button>
