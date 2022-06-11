@@ -21,23 +21,37 @@ export class PlaygroundDef {
   ): PlaygroundDef[] {
     return defArray.sort((a, b) => {
       return (
-        PlaygroundDef.distance(
-          a.latitude,
-          coords.latitude,
-          a.longitude,
-          coords.longitude
-        ) -
-        PlaygroundDef.distance(
-          b.latitude,
-          coords.latitude,
-          b.longitude,
-          coords.longitude
-        )
+        PlaygroundDef.distanceToCoords(a, coords) -
+        PlaygroundDef.distanceToCoords(b, coords)
       );
     });
   }
 
-  static distance(
+  static distanceToCoords(
+    def: PlaygroundDef,
+    coords: GeolocationCoordinates
+  ): number {
+    return PlaygroundDef.distanceToLatLong(
+      def,
+      coords.latitude,
+      coords.longitude
+    );
+  }
+
+  static distanceToLatLong(
+    def: PlaygroundDef,
+    latitude: number,
+    longitude: number
+  ): number {
+    return PlaygroundDef.calculateDistance(
+      def.latitude,
+      latitude,
+      def.longitude,
+      longitude
+    );
+  }
+
+  static calculateDistance(
     lat1: number,
     lat2: number,
     lon1: number,

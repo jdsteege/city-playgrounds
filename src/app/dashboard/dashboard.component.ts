@@ -26,11 +26,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     navigator.geolocation?.watchPosition(
       (position: GeolocationPosition) => {
-        this.playgroundDefs = PlaygroundDef.sortDefsByDistance(
-          pgDefsJson.playgrounds,
-          position.coords
-        );
-        this.nearestPgDef = this.playgroundDefs[0];
+        this.nearestPgDef = this.findNearest(position.coords);
       },
       null,
       {
@@ -39,5 +35,21 @@ export class DashboardComponent implements OnInit {
         maximumAge: 60 * 1000,
       }
     );
+  }
+
+  private findNearest(coords: GeolocationCoordinates): PlaygroundDef {
+    let result: PlaygroundDef = pgDefsJson.playgrounds[0];
+    let minDist: number = PlaygroundDef.distanceToCoords(result, coords);
+
+    for (const current of pgDefsJson.playgrounds) {
+      let curDist: number = PlaygroundDef.distanceToCoords(current, coords);
+
+      if (curDist < minDist) {
+        result = current;
+        minDist = curDist;
+      }
+    }
+
+    return result;
   }
 }
