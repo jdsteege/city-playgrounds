@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   private hhPgSub: Subscription | undefined = undefined;
   householdPlaygroundData: HouseholdPgData | null = null;
 
-  showList: boolean = true;
+  showList: boolean = false;
 
   constructor(private databaseService: DatabaseService) {}
 
