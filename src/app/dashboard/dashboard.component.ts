@@ -14,6 +14,7 @@ import { Household } from '../models/household-pg-data';
 export class DashboardComponent implements OnInit {
   playgroundDefs: PlaygroundDef[] = pgDefsJson.playgrounds;
   nearestPgDef: PlaygroundDef | null = null;
+  nearestDistance: number = 0;
   household: Observable<any>;
 
   showAll: boolean = false;
@@ -26,7 +27,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     navigator.geolocation?.watchPosition(
       (position: GeolocationPosition) => {
-        this.nearestPgDef = this.findNearest(position.coords);
+        this.findNearest(position.coords);
       },
       null,
       {
@@ -37,7 +38,7 @@ export class DashboardComponent implements OnInit {
     );
   }
 
-  private findNearest(coords: GeolocationCoordinates): PlaygroundDef {
+  private findNearest(coords: GeolocationCoordinates): void {
     let result: PlaygroundDef = pgDefsJson.playgrounds[0];
     let minDist: number = PlaygroundDef.distanceToCoords(result, coords);
 
@@ -50,6 +51,7 @@ export class DashboardComponent implements OnInit {
       }
     }
 
-    return result;
+    this.nearestPgDef = result;
+    this.nearestDistance = minDist;
   }
 }
