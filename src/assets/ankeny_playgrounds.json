@@ -5,240 +5,311 @@
       "name": "Boulder Brook Park",
       "imageUrl": "https://www.ankenyiowa.gov/home/showpublishedimage/392/635265127940430000",
       "address": "3333 NW Boulder Point Place Ankeny, IA 50023",
-      "latitude": 41.7384719,
-      "longitude": -93.6468879
+      "latitude": 41.73747534807135,
+      "longitude": -93.64403652466359,
+      "restroom": "None",
+      "splashpad": "No"
     },
     {
       "id": "34",
       "name": "Briarwood Park",
       "imageUrl": "https://www.ankenyiowa.gov/home/showpublishedimage/394/635265127953530000",
       "address": "2701 NE Oak Dr. Ankeny, IA 50021",
-      "latitude": 41.75290059802487,
-      "longitude": -93.59590157941354
+      "latitude": 41.75295087501523,
+      "longitude": -93.59580147290056,
+      "restroom": "Outhouse",
+      "splashpad": "No"
     },
     {
       "id": "40",
       "name": "Dean Park",
       "imageUrl": "https://www.ankenyiowa.gov/home/showpublishedimage/400/635265127999730000",
       "address": "1720 SW Abilene Road Ankeny, IA 50023",
-      "latitude": 41.7125622,
-      "longitude": -93.6270551
+      "latitude": 41.712743235026004,
+      "longitude": -93.62789533748038,
+      "restroom": "None",
+      "splashpad": "No"
     },
     {
       "id": "44",
       "name": "Georgetown Park",
       "imageUrl": "https://www.ankenyiowa.gov/home/showpublishedimage/404/635265128028600000",
       "address": "2625 NW Ash Dr. Ankeny, IA 50023",
-      "latitude": 41.753425625859784,
-      "longitude": -93.60911803703104
+      "latitude": 41.75341301022371,
+      "longitude": -93.60912624644155,
+      "restroom": "Outhouse",
+      "splashpad": "No"
     },
     {
       "id": "46",
       "name": "Glenbrooke Park",
       "imageUrl": "https://www.ankenyiowa.gov/home/showpublishedimage/406/635265128048600000",
       "address": "2803 SW Glenbrooke Dr. Ankeny, IA 50023",
-      "latitude": 41.702548,
-      "longitude": -93.644034
+      "latitude": 41.702144505635374,
+      "longitude": -93.6431322601586,
+      "restroom": "Indoor",
+      "splashpad": "No"
     },
     {
       "id": "48",
       "name": "Greentree Park",
       "imageUrl": "https://www.ankenyiowa.gov/home/showpublishedimage/408/635265128064030000",
       "address": "1914 NW Hickory Ln Ankeny, IA 50023",
-      "latitude": 41.74270522595603,
-      "longitude": -93.62592508358308
+      "latitude": 41.74272036166671,
+      "longitude": -93.62588870362984,
+      "restroom": "Outhouse",
+      "splashpad": "No"
     },
     {
       "id": "50",
       "name": "Haubert Park",
       "imageUrl": "https://www.ankenyiowa.gov/home/showpublishedimage/410/635265128080630000",
       "address": "914 SW 3rd Street Ankeny, IA 50023",
-      "latitude": 41.729761,
-      "longitude": -93.629434
+      "latitude": 41.730427560136526,
+      "longitude": -93.61159542583829,
+      "restroom": "None",
+      "splashpad": "No"
     },
     {
       "id": "52",
       "name": "Hawkeye Park",
       "imageUrl": "https://www.ankenyiowa.gov/home/showpublishedimage/412/635265128099170000",
       "address": "400 NW Lakeshore Dr. Ankeny, IA 50023",
-      "latitude": 41.73348242618499,
-      "longitude": -93.60833422673399
+      "latitude": 41.73347048823418,
+      "longitude": -93.60833353866728,
+      "restroom": "Outhouse",
+      "splashpad": "No"
     },
     {
       "id": "56",
       "name": "Hillside Park",
       "imageUrl": "https://www.ankenyiowa.gov/home/showpublishedimage/416/635265128138900000",
       "address": "1925 SE Four Mile Dr. Ankeny, IA 50021",
-      "latitude": 41.67293,
-      "longitude": -93.56104
+      "latitude": 41.71027994230544,
+      "longitude": -93.55945662788142,
+      "restroom": "Outhouse",
+      "splashpad": "No"
     },
     {
       "id": "60",
       "name": "Michael Park",
       "imageUrl": "https://www.ankenyiowa.gov/home/showpublishedimage/420/635265128176470000",
       "address": "700 NE Michael Dr. Ankeny, IA 50021",
-      "latitude": 41.737362205244985,
-      "longitude": -93.58781470825103
+      "latitude": 41.73735634288049,
+      "longitude": -93.58780967995939,
+      "restroom": "None",
+      "splashpad": "No"
     },
     {
       "id": "64",
       "name": "Northcreek Park",
       "imageUrl": "https://www.ankenyiowa.gov/home/showpublishedimage/422/635265128195570000",
       "address": "1309 NW Irvindale Dr. Ankeny, IA 50023",
-      "latitude": 41.7425,
-      "longitude": -93.63904
+      "latitude": 41.74196843064995,
+      "longitude": -93.6380447973119,
+      "restroom": "Outhouse",
+      "splashpad": "No"
     },
     {
       "id": "66",
       "name": "Otter Creek Park",
       "imageUrl": "https://www.ankenyiowa.gov/home/showpublishedimage/424/635265128210300000",
       "address": "1100 NE 36th St. Ankeny, IA 50021",
-      "latitude": 41.7607789,
-      "longitude": -93.5675588
+      "latitude": 41.76127618443925,
+      "longitude": -93.57869140403163,
+      "restroom": "Indoor",
+      "splashpad": "No"
     },
     {
       "id": "70",
-      "name": "Prairie Ridge Sports Complex",
+      "name": "Prairie Ridge",
       "imageUrl": "https://www.ankenyiowa.gov/home/showpublishedimage/488/635265800542570000",
-      "address": "1510 NW Ash Drive and frontage along 1200 block of NW 18th ST Ankeny, IA 50021",
-      "latitude": 41.74420152265531,
-      "longitude": -93.61252855008607
+      "address": "1510 NW Ash Dr. Ankeny, IA 50021",
+      "latitude": 41.74420127179104,
+      "longitude": -93.61252451899041,
+      "restroom": "Indoor",
+      "splashpad": "No"
     },
     {
       "id": "78",
       "name": "Sawgrass Park",
       "imageUrl": "https://www.ankenyiowa.gov/home/showpublishedimage/432/635265800542570000",
       "address": "2200 SW 36th St. Ankeny, IA 50023",
-      "latitude": 41.6950988,
-      "longitude": -93.6311683
+      "latitude": 41.69389109985603,
+      "longitude": -93.62911439188136,
+      "restroom": "Outhouse",
+      "splashpad": "No"
     },
     {
       "id": "80",
       "name": "Somersby Park",
       "imageUrl": "https://www.ankenyiowa.gov/home/showpublishedimage/434/635265800542570000",
-      "address": "816 SW Springfield DR Ankeny, IA 50023",
-      "latitude": 41.6938509,
-      "longitude": -93.6128472
+      "address": "816 SW Springfield Dr. Ankeny, IA 50023",
+      "latitude": 41.69481181142303,
+      "longitude": -93.61081699801643,
+      "restroom": "Outhouse",
+      "splashpad": "No"
     },
     {
       "id": "82",
       "name": "Springwood Park",
       "imageUrl": "https://www.ankenyiowa.gov/home/showpublishedimage/436/635265800542570000",
       "address": "275 SE Springwood Dr. Ankeny, IA 50021",
-      "latitude": 41.6969279,
-      "longitude": -93.5965059
+      "latitude": 41.6966123995432,
+      "longitude": -93.59747217812377,
+      "restroom": "None",
+      "splashpad": "No"
     },
     {
       "id": "84",
       "name": "Summerbrook Park",
       "imageUrl": "https://www.ankenyiowa.gov/home/showpublishedimage/438/635265800542570000",
       "address": "800 SE Delaware Ave Ankeny, IA 50021",
-      "latitude": 41.6937055,
-      "longitude": -93.5813728
+      "latitude": 41.722253149469076,
+      "longitude": -93.58207101312624,
+      "restroom": "Outhouse",
+      "splashpad": "No"
     },
     {
       "id": "86",
       "name": "Sunrise Park",
       "imageUrl": "https://www.ankenyiowa.gov/home/showpublishedimage/440/635265800482100000",
       "address": "506 SE Peterson Drive Ankeny, IA 50021",
-      "latitude": 41.7269129,
-      "longitude": -93.5907701
+      "latitude": 41.72756468514818,
+      "longitude": -93.5938456048065,
+      "restroom": "Indoor",
+      "splashpad": "Yes"
     },
     {
       "id": "88",
       "name": "Sunset Park",
       "imageUrl": "https://www.ankenyiowa.gov/home/showpublishedimage/442/635265800482100000",
       "address": "1309 SW 3rd St Ankeny, IA 50023",
-      "latitude": 41.729761,
-      "longitude": -93.629434
+      "latitude": 41.7292814969918,
+      "longitude": -93.61792831403488,
+      "restroom": "Indoor",
+      "splashpad": "No"
     },
     {
       "id": "90",
       "name": "Village Park",
       "imageUrl": "https://www.ankenyiowa.gov/home/showpublishedimage/444/635265800482100000",
       "address": "1241 NW 4th ST Ankeny, IA 50023",
-      "latitude": 41.7349597,
-      "longitude": -93.6333725
+      "latitude": 41.73407512866031,
+      "longitude": -93.61736207790427,
+      "restroom": "None",
+      "splashpad": "No"
     },
     {
       "id": "96",
       "name": "Watercrest Park",
       "imageUrl": "https://www.ankenyiowa.gov/home/showpublishedimage/450/635265800482100000",
       "address": "4320 NW 5th St. Ankeny, IA 50023",
-      "latitude": 41.7353712,
-      "longitude": -93.6462561
+      "latitude": 41.73722448748592,
+      "longitude": -93.6580655099944,
+      "restroom": "Outhouse",
+      "splashpad": "No"
     },
     {
       "id": "98",
       "name": "Westside Park",
       "imageUrl": "https://www.ankenyiowa.gov/home/showpublishedimage/452/635265800482100000",
       "address": "599 SW State ST Ankeny, IA 50023",
-      "latitude": 41.695699,
-      "longitude": -93.62095
+      "latitude": 41.7267043230397,
+      "longitude": -93.62123792594106,
+      "restroom": "None",
+      "splashpad": "No"
     },
     {
       "id": "100",
       "name": "Westwinds Park",
       "imageUrl": "https://www.ankenyiowa.gov/home/showpublishedimage/454/635265800482100000",
       "address": "2200 SW Woodbury Ln Ankeny, IA 50023",
-      "latitude": 41.706298,
-      "longitude": -93.641046
+      "latitude": 41.70760448046858,
+      "longitude": -93.63934235618338,
+      "restroom": "None",
+      "splashpad": "No"
     },
     {
       "id": "102",
       "name": "White Birch Park",
       "imageUrl": "https://www.ankenyiowa.gov/home/showpublishedimage/456/635265800482100000",
-      "address": "Corner of SW 35th ST and SW White Birch DR Ankeny, IA 50023",
-      "latitude": 41.7046,
-      "longitude": -93.62708
+      "address": "1701 SW White Birch Cir, Ankeny, IA 50023",
+      "latitude": 41.70133355562108,
+      "longitude": -93.62404089867691,
+      "restroom": "None",
+      "splashpad": "No"
     },
     {
       "id": "371",
       "name": "Miracle Park",
       "imageUrl": "https://www.ankenyiowa.gov/home/showpublishedimage/2085/635995974340330000",
       "address": "300 NW School St Ankeny, IA 50023",
-      "latitude": 41.7342259201054,
-      "longitude": -93.60551459608305
+      "latitude": 41.73431713002056,
+      "longitude": -93.60551348411902,
+      "restroom": "Indoor",
+      "splashpad": "No"
     },
     {
       "id": "595",
       "name": "Crestbruck Park",
       "imageUrl": "https://www.ankenyiowa.gov/home/showpublishedimage/3403/636542908195570000",
       "address": "1001 NE Crestmoor Place Ankeny, IA 50023",
-      "latitude": 41.7398647937964,
-      "longitude": -93.59200512620518
+      "latitude": 41.73987234638716,
+      "longitude": -93.59193286741332,
+      "restroom": "Outhouse",
+      "splashpad": "Yes"
     },
     {
       "id": "1858",
       "name": "Deer Creek Park",
       "imageUrl": "https://www.ankenyiowa.gov/home/showpublishedimage/5084/637044978753270000",
       "address": "1601 NE Chambers Parkway Ankeny, IA 50021",
-      "latitude": 41.7418833,
-      "longitude": -93.566018
+      "latitude": 41.74429924141861,
+      "longitude": -93.5631343001342,
+      "restroom": "Outhouse",
+      "splashpad": "No"
     },
     {
       "id": "1911",
-      "name": "Estates Park",
+      "name": "Cascade Estates Park",
       "imageUrl": "https://www.ankenyiowa.gov/home/showpublishedimage/4970/637009585710970000",
       "address": "2020 SW Cascade Falls Dr. Ankeny, IA 50023",
-      "latitude": 41.71105,
-      "longitude": -93.63312
+      "latitude": 41.7096534781707,
+      "longitude": -93.63257121201516,
+      "restroom": "None",
+      "splashpad": "No"
     },
     {
       "id": "1938",
       "name": "Westview Park",
       "imageUrl": "https://www.ankenyiowa.gov/home/showpublishedimage/5088/637044987356930000",
       "address": "1155 SW Magazine Road Ankeny, IA 50023",
-      "latitude": 41.7160616,
-      "longitude": -93.6144068
+      "latitude": 41.71604555001038,
+      "longitude": -93.61573946530206,
+      "restroom": "None",
+      "splashpad": "No"
     },
     {
       "id": "2338",
       "name": "Centennial Park",
       "imageUrl": "https://lh5.googleusercontent.com/p/AF1QipOGIf4YBwjksajB-ZH6raZ95WKGTLoGwD4vnUwb=w203-h152-k-no",
       "address": "2202 NW Reinhart Dr. Ankeny, IA 50023",
-      "latitude": 41.75250049242527,
-      "longitude": -93.6295175418619
+      "latitude": 41.75250969523358,
+      "longitude": -93.62950023881334,
+      "restroom": "Outhouse",
+      "splashpad": "No"
+    },
+    {
+      "id": "999999",
+      "name": "The District",
+      "imageUrl": "https://lh3.googleusercontent.com/ntynDdIVJpwLkdkQIFWQ_1UMcGoFOhBkLCam1Ki1Bz-WEPC-dgaCGL-zrbUBojtRWMjTY3xCkPHKeimcsjM0aa2RlEe2oozM5xnXZ4nOC3miPYQMJP_Dxu3_D7QtLapprDSWhog3eAj3Y_UK22B37JCJT1T6TRq4oYt4slOdy9DmdXk7Fz530YhXFjEXVFDEatTNJLhRGQt0t27YCVEARUGs88nUo_zEE8pahEuSk_FeVDBWFjzQcBc9k8MFi6JOECtPFzLsqgdj7c7Ii6IIyG5Q_ZIkctM0z-EfofVFFUzuLdKsySaXGm_SZaFUwXTx2Ml_kg7r2UHZOdVUxgcy8YOhEgy6bcnjLCun0lncRQ7gaGMp3PHzOpzoMKT3mPD4sq7HWIcAnMUWIO7F9ASdloybTaPhxj6TvYSTRB6pGHfxpY49pMKgkuq0vJPfhWxPJgcAbFqIJHfcN7OjsRa0ggdMrjZ-lzcK4RwRDKt82vFdNx_9JFnWvbLPZuLzbJD0V_A29IP91mrboOrcyj5RL0uVZUFbXerPCZy1zdd-xjna8fqyzmH3iISmCExqHYMMBoe_6_aY4UktFiXasyJ7cNsvW2RWButT9G8H0CPmoHiLTEhFnYL5w-ISEFtFGMp7vOn-cDHAHUklTF_GFkXXEPM3VtG0vAmuEv-fXJBCyGolyiU-BFIhZ0XiUXIwhvatPTMRbXSB9fQZ_cCfa1OM-iFeZ0jV4_bIUedj0qu2juaZuqXgmeDNWmDdj1PeYbAmpyfkmZL6sr3d0uLO7_Wd9oqgPmCvHJf4hgJdG1FtYACKouJwIfCuYsD2=w834-h469-no?authuser=0",
+      "address": "1250 SW District Dr. Ankeny, IA 50023",
+      "latitude": 41.71396023699701,
+      "longitude": -93.61583581189637,
+      "restroom": "Indoor",
+      "splashpad": "No"
     }
-  ]
+  ],
+  "splashpad": "No"
 }

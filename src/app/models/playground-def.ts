@@ -5,6 +5,7 @@ export class PlaygroundDef {
   address: string;
   latitude: number;
   longitude: number;
+  restroom: string;
 
   constructor() {
     this.id = '';
@@ -13,6 +14,7 @@ export class PlaygroundDef {
     this.address = '';
     this.latitude = 0;
     this.longitude = 0;
+    this.restroom = 'None';
   }
 
   static sortDefsByDistance(

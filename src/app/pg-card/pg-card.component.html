@@ -4,7 +4,10 @@
 <div class="content">
   <div class="header">
     {{ pgDef?.name }}&nbsp;&nbsp;
-    <a target="_blank" href="{{ getParkWebsiteURL() }}"
+    <a
+      target="_blank"
+      href="{{ getParkWebsiteURL() }}"
+      *ngIf="pgDef?.id != '999999'"
       ><i class="external alternate small link icon"></i
     ></a>
   </div>
@@ -45,13 +48,42 @@
 
     <div
       class="ui fitted segment"
+      *ngIf="pgDef?.restroom == 'None'"
+      data-tooltip="No toilet"
+      data-position="bottom center"
+    >
+      <i class="restroom small inverted grey icon"></i>
+    </div>
+    <div
+      class="ui fitted segment"
+      *ngIf="pgDef?.restroom == 'Indoor'"
+      data-tooltip="Indoor restroom"
+      data-position="bottom center"
+    >
+      <i class="bordered small inverted blue restroom icon"></i>
+    </div>
+    <div
+      class="ui fitted segment"
+      *ngIf="pgDef?.restroom == 'Outhouse'"
+      data-tooltip="Outhouse / portable toilet"
+      data-position="bottom center"
+    >
+      <i class="bordered small olive restroom icon"></i>
+    </div>
+
+    <div
+      class="ui fitted segment"
       data-tooltip="How long since your last visit to this playground"
       data-position="bottom center"
     >
       <i class="calendar check icon fitted"></i> {{ getLastVisitString() }}
     </div>
 
-    <div class="ui fitted segment">
+    <div
+      class="ui fitted segment"
+      data-tooltip="Edit"
+      data-position="bottom center"
+    >
       <a class="ui mini icon compact button" routerLink="/edit/{{ pgDef?.id }}">
         <i class="edit icon"></i>
       </a>

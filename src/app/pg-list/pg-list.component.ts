@@ -40,6 +40,26 @@ export class PgListComponent implements OnInit {
         maximumAge: 60 * 1000,
       }
     );
+
+    setTimeout(() => {
+      this.scrollToTargetAdjusted('listFilters');
+    }, 50);
+  }
+
+  // https://stackoverflow.com/a/49860927/19036171
+  scrollToTargetAdjusted(targetId: string): void {
+    const element = document.getElementById(targetId);
+    if (!element) {
+      return;
+    }
+    const headerOffset = 50;
+    const elementPosition = element?.getBoundingClientRect().top ?? 0;
+    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth',
+    });
   }
 
   setFilter(passportEmpty: boolean): void {
