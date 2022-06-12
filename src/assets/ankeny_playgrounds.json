@@ -8,7 +8,7 @@
       "latitude": 41.73747534807135,
       "longitude": -93.64403652466359,
       "restroom": "None",
-      "splashpad": "No"
+      "splashpad": false
     },
     {
       "id": "34",
@@ -18,7 +18,7 @@
       "latitude": 41.75295087501523,
       "longitude": -93.59580147290056,
       "restroom": "Outhouse",
-      "splashpad": "No"
+      "splashpad": false
     },
     {
       "id": "40",
@@ -28,7 +28,7 @@
       "latitude": 41.712743235026004,
       "longitude": -93.62789533748038,
       "restroom": "None",
-      "splashpad": "No"
+      "splashpad": false
     },
     {
       "id": "44",
@@ -38,7 +38,7 @@
       "latitude": 41.75341301022371,
       "longitude": -93.60912624644155,
       "restroom": "Outhouse",
-      "splashpad": "No"
+      "splashpad": false
     },
     {
       "id": "46",
@@ -48,7 +48,7 @@
       "latitude": 41.702144505635374,
       "longitude": -93.6431322601586,
       "restroom": "Indoor",
-      "splashpad": "No"
+      "splashpad": false
     },
     {
       "id": "48",
@@ -58,7 +58,7 @@
       "latitude": 41.74272036166671,
       "longitude": -93.62588870362984,
       "restroom": "Outhouse",
-      "splashpad": "No"
+      "splashpad": false
     },
     {
       "id": "50",
@@ -68,7 +68,7 @@
       "latitude": 41.730427560136526,
       "longitude": -93.61159542583829,
       "restroom": "None",
-      "splashpad": "No"
+      "splashpad": false
     },
     {
       "id": "52",
@@ -78,7 +78,7 @@
       "latitude": 41.73347048823418,
       "longitude": -93.60833353866728,
       "restroom": "Outhouse",
-      "splashpad": "No"
+      "splashpad": false
     },
     {
       "id": "56",
@@ -88,7 +88,7 @@
       "latitude": 41.71027994230544,
       "longitude": -93.55945662788142,
       "restroom": "Outhouse",
-      "splashpad": "No"
+      "splashpad": false
     },
     {
       "id": "60",
@@ -98,7 +98,7 @@
       "latitude": 41.73735634288049,
       "longitude": -93.58780967995939,
       "restroom": "None",
-      "splashpad": "No"
+      "splashpad": false
     },
     {
       "id": "64",
@@ -108,7 +108,7 @@
       "latitude": 41.74196843064995,
       "longitude": -93.6380447973119,
       "restroom": "Outhouse",
-      "splashpad": "No"
+      "splashpad": false
     },
     {
       "id": "66",
@@ -118,7 +118,7 @@
       "latitude": 41.76127618443925,
       "longitude": -93.57869140403163,
       "restroom": "Indoor",
-      "splashpad": "No"
+      "splashpad": false
     },
     {
       "id": "70",
@@ -128,7 +128,7 @@
       "latitude": 41.74420127179104,
       "longitude": -93.61252451899041,
       "restroom": "Indoor",
-      "splashpad": "No"
+      "splashpad": false
     },
     {
       "id": "78",
@@ -138,7 +138,7 @@
       "latitude": 41.69389109985603,
       "longitude": -93.62911439188136,
       "restroom": "Outhouse",
-      "splashpad": "No"
+      "splashpad": false
     },
     {
       "id": "80",
@@ -148,7 +148,7 @@
       "latitude": 41.69481181142303,
       "longitude": -93.61081699801643,
       "restroom": "Outhouse",
-      "splashpad": "No"
+      "splashpad": false
     },
     {
       "id": "82",
@@ -158,7 +158,7 @@
       "latitude": 41.6966123995432,
       "longitude": -93.59747217812377,
       "restroom": "None",
-      "splashpad": "No"
+      "splashpad": false
     },
     {
       "id": "84",
@@ -168,7 +168,7 @@
       "latitude": 41.722253149469076,
       "longitude": -93.58207101312624,
       "restroom": "Outhouse",
-      "splashpad": "No"
+      "splashpad": false
     },
     {
       "id": "86",
@@ -178,7 +178,7 @@
       "latitude": 41.72756468514818,
       "longitude": -93.5938456048065,
       "restroom": "Indoor",
-      "splashpad": "Yes"
+      "splashpad": true
     },
     {
       "id": "88",
@@ -188,7 +188,7 @@
       "latitude": 41.7292814969918,
       "longitude": -93.61792831403488,
       "restroom": "Indoor",
-      "splashpad": "No"
+      "splashpad": false
     },
     {
       "id": "90",
@@ -198,7 +198,7 @@
       "latitude": 41.73407512866031,
       "longitude": -93.61736207790427,
       "restroom": "None",
-      "splashpad": "No"
+      "splashpad": false
     },
     {
       "id": "96",
@@ -208,7 +208,7 @@
       "latitude": 41.73722448748592,
       "longitude": -93.6580655099944,
       "restroom": "Outhouse",
-      "splashpad": "No"
+      "splashpad": false
     },
     {
       "id": "98",
@@ -218,7 +218,7 @@
       "latitude": 41.7267043230397,
       "longitude": -93.62123792594106,
       "restroom": "None",
-      "splashpad": "No"
+      "splashpad": false
     },
     {
       "id": "100",
@@ -228,7 +228,7 @@
       "latitude": 41.70760448046858,
       "longitude": -93.63934235618338,
       "restroom": "None",
-      "splashpad": "No"
+      "splashpad": false
     },
     {
       "id": "102",
@@ -238,7 +238,7 @@
       "latitude": 41.70133355562108,
       "longitude": -93.62404089867691,
       "restroom": "None",
-      "splashpad": "No"
+      "splashpad": false
     },
     {
       "id": "371",
@@ -248,7 +248,7 @@
       "latitude": 41.73431713002056,
       "longitude": -93.60551348411902,
       "restroom": "Indoor",
-      "splashpad": "No"
+      "splashpad": false
     },
     {
       "id": "595",
@@ -258,7 +258,7 @@
       "latitude": 41.73987234638716,
       "longitude": -93.59193286741332,
       "restroom": "Outhouse",
-      "splashpad": "Yes"
+      "splashpad": true
     },
     {
       "id": "1858",
@@ -268,7 +268,7 @@
       "latitude": 41.74429924141861,
       "longitude": -93.5631343001342,
       "restroom": "Outhouse",
-      "splashpad": "No"
+      "splashpad": false
     },
     {
       "id": "1911",
@@ -278,7 +278,7 @@
       "latitude": 41.7096534781707,
       "longitude": -93.63257121201516,
       "restroom": "None",
-      "splashpad": "No"
+      "splashpad": false
     },
     {
       "id": "1938",
@@ -288,7 +288,7 @@
       "latitude": 41.71604555001038,
       "longitude": -93.61573946530206,
       "restroom": "None",
-      "splashpad": "No"
+      "splashpad": false
     },
     {
       "id": "2338",
@@ -298,7 +298,7 @@
       "latitude": 41.75250969523358,
       "longitude": -93.62950023881334,
       "restroom": "Outhouse",
-      "splashpad": "No"
+      "splashpad": false
     },
     {
       "id": "999999",
@@ -308,8 +308,8 @@
       "latitude": 41.71396023699701,
       "longitude": -93.61583581189637,
       "restroom": "Indoor",
-      "splashpad": "No"
+      "splashpad": false
     }
   ],
-  "splashpad": "No"
+  "splashpad": false
 }

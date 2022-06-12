@@ -31,23 +31,6 @@
   >
     <div
       class="ui fitted segment"
-      *ngIf="hhPgData?.passport"
-      data-tooltip="Passport logged"
-      data-position="bottom center"
-    >
-      <i class="plane icon fitted small yellow"></i>
-    </div>
-    <div
-      class="ui fitted segment"
-      *ngIf="!hhPgData?.passport"
-      data-tooltip="Passport not logged"
-      data-position="bottom center"
-    >
-      <i class="plane icon fitted tiny inverted grey circular"></i>
-    </div>
-
-    <div
-      class="ui fitted segment"
       *ngIf="pgDef?.restroom == 'None'"
       data-tooltip="No toilet"
       data-position="bottom center"
@@ -69,6 +52,32 @@
       data-position="bottom center"
     >
       <i class="bordered small olive restroom icon"></i>
+    </div>
+
+    <div
+      class="ui fitted segment"
+      *ngIf="pgDef?.splashpad"
+      data-tooltip="Splashpad"
+      data-position="bottom center"
+    >
+      <i class="blue water icon"></i>
+    </div>
+
+    <div
+      class="ui fitted segment"
+      *ngIf="hhPgData?.passport"
+      data-tooltip="Passport logged"
+      data-position="bottom center"
+    >
+      <i class="plane icon fitted small yellow"></i>
+    </div>
+    <div
+      class="ui fitted segment"
+      *ngIf="!hhPgData?.passport"
+      data-tooltip="Passport not logged"
+      data-position="bottom center"
+    >
+      <i class="plane icon fitted tiny inverted grey circular"></i>
     </div>
 
     <div
