@@ -24,6 +24,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { EditHouseholdDataComponent } from './edit-household-data/edit-household-data.component';
 import { FormsModule } from '@angular/forms';
 import { DatabaseService } from './services/database.service';
+import { CheckInComponent } from './check-in/check-in.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { DatabaseService } from './services/database.service';
     PgCardComponent,
     HouseholdLoginComponent,
     EditHouseholdDataComponent,
+    CheckInComponent,
   ],
   imports: [
     BrowserModule,

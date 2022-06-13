@@ -65,8 +65,4 @@ export class DashboardComponent implements OnInit, OnDestroy {
         this.householdPlaygroundData = data.payload.val();
       });
   }
-
-  showModal(): void {
-    $('.ui.basic.modal').modal('show');
-  }
 }

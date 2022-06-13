@@ -1,13 +1,13 @@
 <div class="ui image">
-  <img class="ui image" src="{{ pgDef?.imageUrl }}" />
+  <img class="ui image" src="{{ pgDef.imageUrl }}" />
 </div>
 <div class="content">
   <div class="header">
-    {{ pgDef?.name }}&nbsp;&nbsp;
+    {{ pgDef.name }}&nbsp;&nbsp;
     <a
       target="_blank"
       href="{{ getParkWebsiteURL() }}"
-      *ngIf="pgDef?.id != '999999'"
+      *ngIf="pgDef.id != '999999'"
       ><i class="external alternate small link icon"></i
     ></a>
   </div>
@@ -31,7 +31,7 @@
   >
     <div
       class="ui fitted segment"
-      *ngIf="pgDef?.restroom == 'None'"
+      *ngIf="pgDef.restroom == 'None'"
       data-tooltip="No toilet"
       data-position="bottom center"
     >
@@ -39,7 +39,7 @@
     </div>
     <div
       class="ui fitted segment"
-      *ngIf="pgDef?.restroom == 'Indoor'"
+      *ngIf="pgDef.restroom == 'Indoor'"
       data-tooltip="Indoor restroom"
       data-position="bottom center"
     >
@@ -47,7 +47,7 @@
     </div>
     <div
       class="ui fitted segment"
-      *ngIf="pgDef?.restroom == 'Outhouse'"
+      *ngIf="pgDef.restroom == 'Outhouse'"
       data-tooltip="Outhouse"
       data-position="bottom center"
     >
@@ -56,7 +56,7 @@
 
     <div
       class="ui fitted segment"
-      *ngIf="pgDef?.splashpad"
+      *ngIf="pgDef.splashpad"
       data-tooltip="Splashpad"
       data-position="bottom center"
     >
@@ -93,7 +93,7 @@
       data-tooltip="Edit"
       data-position="bottom center"
     >
-      <a class="ui mini icon compact button" routerLink="/edit/{{ pgDef?.id }}">
+      <a class="ui mini icon compact button" routerLink="/edit/{{ pgDef.id }}">
         <i class="edit icon"></i>
       </a>
     </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Household, HouseholdPgData } from '../models/household-pg-data';
+import { HouseholdPgData } from '../models/household-pg-data';
 import { PlaygroundDef } from '../models/playground-def';
 
 @Component({
@@ -14,13 +14,6 @@ export class PgCardComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
-
-  // getHhPgData(): HouseholdPgData | undefined {
-  //   if (this.household?.playgrounds) {
-  //     return this.household.playgrounds[this.pgDef.id];
-  //   }
-  //   return undefined;
-  // }
 
   trimmedAddress(): string {
     const a = this.pgDef.address;

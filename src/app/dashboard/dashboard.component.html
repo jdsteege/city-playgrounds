@@ -11,9 +11,10 @@
     class="ui card"
   ></app-pg-card>
 
-  <div class="ui primary button disabled" style="border-radius: 2rem">
-    <i class="check icon"></i>Check In
-  </div>
+  <app-check-in
+    [pgDef]="nearestPgDef"
+    [hhPgData]="householdPlaygroundData"
+  ></app-check-in>
 </div>
 
 <div class="ui segment">
@@ -24,29 +25,5 @@
   </div>
   <div *ngIf="showList">
     <app-pg-list></app-pg-list>
-  </div>
-</div>
-
-<button class="ui button" (click)="showModal()">Show Modal</button>
-<div class="ui basic modal">
-  <div class="ui icon header">
-    <i class="archive icon"></i>
-    Archive Old Messages
-  </div>
-  <div class="content">
-    <p>
-      Your inbox is getting full, would you like us to enable automatic
-      archiving of old messages?
-    </p>
-  </div>
-  <div class="actions">
-    <div class="ui red basic cancel inverted button">
-      <i class="remove icon"></i>
-      No
-    </div>
-    <div class="ui green ok inverted button">
-      <i class="checkmark icon"></i>
-      Yes
-    </div>
   </div>
 </div>

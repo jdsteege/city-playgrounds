@@ -1,0 +1,38 @@
+<div
+  class="ui primary button"
+  style="border-radius: 2rem"
+  (click)="showModal()"
+>
+  <i class="check icon"></i>Check In
+</div>
+
+<div class="ui modal" id="modal_visit_date">
+  <div class="header">{{ pgDef.name }}</div>
+  <div class="image content">
+    <img class="ui medium image" src="{{ pgDef.imageUrl }}" />
+    <div class="description">
+      <div>When did you visit this playground?</div>
+      <div class="ui calendar" id="visit_date_calendar">
+        <div class="ui input left icon" style="margin: 1rem 1rem 1rem 0rem">
+          <i class="calendar alternate icon"></i>
+          <input type="text" placeholder="Date" />
+        </div>
+        <button class="ui tertiary icon button" (click)="clearVisitDate()">
+          <i class="times circle outline icon"></i>
+        </button>
+        <div>
+          <button class="ui positive icon button" (click)="todayVisitDate()">
+            <i class="calendar day icon"></i>Today
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="ui cancel button">Cancel</div>
+    <div class="ui ok primary right labeled icon button" (click)="continue()">
+      Continue
+      <i class="angle right icon"></i>
+    </div>
+  </div>
+</div>
