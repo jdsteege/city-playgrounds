@@ -30,6 +30,14 @@ export class CheckInComponent implements OnInit {
     );
   }
 
+  hideModal(event: HashChangeEvent): void {
+    // console.log(event.oldURL);
+    if (event.oldURL.includes('#modal')) {
+      // console.log('hiding');
+      (<any>$('.ui.modal')).modal('hide');
+    }
+  }
+
   showModal(): void {
     let modalContent: string =
       `
@@ -85,6 +93,7 @@ export class CheckInComponent implements OnInit {
     (<any>$('body'))
       .modal({
         class: 'tiny',
+        centered: false,
         autofocus: false,
         duration: 0,
         title: this.pgDef.name,
@@ -123,12 +132,17 @@ export class CheckInComponent implements OnInit {
     $('#visit_date_clear_button').on('click', () => {
       this.clearVisitDate();
     });
+
+    // Close modal on browser back button
+    location.hash = 'modal';
+    addEventListener('hashchange', this.hideModal);
   }
 
   defaultVisitDate(): Date {
     let result: Date = new Date();
     let distance = PlaygroundDef.distanceToCoords(this.pgDef, this.geoCoords);
-    console.log(distance + ' miles');
+    // console.log(distance + ' miles');
+
     if (
       distance > 0.2 &&
       this.hhPgData?.last_visit &&
