@@ -1,4 +1,4 @@
-<div class="ui raised segment center aligned compact-centered">
+<div class="ui segment center aligned">
   <h3 class="ui header">Nearest Playground</h3>
   <div class="ui text grey">
     <i class="compass outline icon"></i>{{ nearestDistance.toFixed(1) }} miles
@@ -8,12 +8,13 @@
     *ngIf="nearestPgDef"
     [pgDef]="nearestPgDef"
     [hhPgData]="householdPlaygroundData"
-    class="ui card"
+    class="ui centered raised card"
   ></app-pg-card>
 
   <app-check-in
     [pgDef]="nearestPgDef"
     [hhPgData]="householdPlaygroundData"
+    [compact]="false"
   ></app-check-in>
 </div>
 

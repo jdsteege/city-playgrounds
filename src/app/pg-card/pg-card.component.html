@@ -90,12 +90,24 @@
 
     <div
       class="ui fitted segment"
+      data-tooltip="Check In"
+      data-position="bottom center"
+    >
+      <app-check-in
+        [pgDef]="pgDef"
+        [hhPgData]="hhPgData"
+        [compact]="true"
+      ></app-check-in>
+    </div>
+
+    <!-- <div
+      class="ui fitted segment"
       data-tooltip="Edit"
       data-position="bottom center"
     >
       <a class="ui mini icon compact button" routerLink="/edit/{{ pgDef.id }}">
         <i class="edit icon"></i>
       </a>
-    </div>
+    </div> -->
   </div>
 </div>

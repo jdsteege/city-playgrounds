@@ -33,8 +33,12 @@ export class PlaygroundDef {
 
   static distanceToCoords(
     def: PlaygroundDef,
-    coords: GeolocationCoordinates
+    coords: GeolocationCoordinates | undefined
   ): number {
+    if (!coords) {
+      return -1;
+    }
+
     return PlaygroundDef.distanceToLatLong(
       def,
       coords.latitude,
