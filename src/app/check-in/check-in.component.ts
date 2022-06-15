@@ -66,7 +66,7 @@ export class CheckInComponent implements OnInit {
           <div class="field">
             <label><i class="plane icon"></i> Passport</label>
             <div class="ui input">
-              <input type="text" placeholder="Passport code" id="passport_input" autocomplete="off" value="` +
+              <input type="text" placeholder="Passport code" id="passport_input" autocomplete="off" style="text-transform: uppercase" value="` +
       (this.hhPgData?.passport ?? '') +
       `" />
             </div>
