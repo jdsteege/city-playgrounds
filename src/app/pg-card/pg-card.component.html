@@ -33,7 +33,7 @@
       class="ui fitted segment"
       *ngIf="pgDef.restroom == 'None'"
       data-tooltip="No toilet"
-      data-position="bottom center"
+      data-position="right center"
     >
       <i class="restroom small inverted grey icon"></i>
     </div>
@@ -41,7 +41,7 @@
       class="ui fitted segment"
       *ngIf="pgDef.restroom == 'Indoor'"
       data-tooltip="Indoor restroom"
-      data-position="bottom center"
+      data-position="right center"
     >
       <i class="bordered small inverted blue restroom icon"></i>
     </div>
@@ -49,7 +49,7 @@
       class="ui fitted segment"
       *ngIf="pgDef.restroom == 'Outhouse'"
       data-tooltip="Outhouse"
-      data-position="bottom center"
+      data-position="right center"
     >
       <i class="bordered small olive restroom icon"></i>
     </div>
@@ -58,7 +58,7 @@
       class="ui fitted segment"
       *ngIf="pgDef.splashpad"
       data-tooltip="Splashpad"
-      data-position="bottom center"
+      data-position="top center"
     >
       <i class="blue water icon"></i>
     </div>
@@ -67,7 +67,7 @@
       class="ui fitted segment"
       *ngIf="hhPgData?.passport"
       data-tooltip="Passport logged"
-      data-position="bottom center"
+      data-position="top center"
     >
       <i class="plane icon fitted small yellow"></i>
     </div>
@@ -75,39 +75,25 @@
       class="ui fitted segment"
       *ngIf="!hhPgData?.passport"
       data-tooltip="Passport not logged"
-      data-position="bottom center"
+      data-position="top center"
     >
       <i class="plane icon fitted tiny inverted grey circular"></i>
     </div>
 
     <div
       class="ui fitted segment"
-      data-tooltip="How long since your last visit to this playground"
-      data-position="bottom center"
+      data-tooltip="Days since your last visit"
+      data-position="top center"
     >
       <i class="calendar check icon fitted"></i> {{ getLastVisitString() }}
     </div>
 
-    <div
-      class="ui fitted segment"
-      data-tooltip="Check In"
-      data-position="bottom center"
-    >
+    <div class="ui fitted segment">
       <app-check-in
         [pgDef]="pgDef"
         [hhPgData]="hhPgData"
         [compact]="true"
       ></app-check-in>
     </div>
-
-    <!-- <div
-      class="ui fitted segment"
-      data-tooltip="Edit"
-      data-position="bottom center"
-    >
-      <a class="ui mini icon compact button" routerLink="/edit/{{ pgDef.id }}">
-        <i class="edit icon"></i>
-      </a>
-    </div> -->
   </div>
 </div>

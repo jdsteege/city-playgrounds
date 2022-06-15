@@ -1,12 +1,11 @@
 <div>
   <div class="ui top fixed menu">
-    <div class="header item">Playgrounds</div>
-    <!-- <div class="toolbar-spacer"></div> -->
-    <div class="ui simple dropdown item floated right">
-      <div class="text">Menu</div>
-      <i class="dropdown icon"></i>
+    <div class="ui simple dropdown item">
+      <!-- <div class="text">Menu</div> -->
+      <!-- <i class="dropdown icon"></i> -->
+      <i class="bars icon"></i>
 
-      <div class="left menu">
+      <div class="menu">
         <div class="item" *ngIf="isLoggedIn()">
           <a class="ui primary button" routerLink="/login"
             >Welcome, {{ householdId }}</a
@@ -17,19 +16,22 @@
         </div>
 
         <div class="item">
-          <a
-            class="ui"
-            target="_blank"
-            href="https://www.ankenyiowa.gov/our-city/departments/parks-and-recreation/parks/parks-passport-challenge"
-            >Ankeny Parks Passport Website</a
+          <a class="ui yellow button" routerLink="/passport-list"
+            >Passport List</a
           >
         </div>
 
         <div class="item">
-          <div class="ui primary button">Check In</div>
+          <a
+            class="ui"
+            target="_blank"
+            href="https://www.ankenyiowa.gov/our-city/departments/parks-and-recreation/parks/parks-passport-challenge"
+            >Ankeny Parks<br />Passport Website</a
+          >
         </div>
       </div>
     </div>
+    <div class="header item">Ankeny Playgrounds</div>
   </div>
 
   <div style="padding-top: 4rem">

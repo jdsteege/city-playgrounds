@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from 'src/app/services/database.service';
 import { PlaygroundDef } from '../models/playground-def';
+import { Household } from '../models/household-pg-data';
 //
 import pgDefsJson from '../../assets/ankeny_playgrounds.json';
-import { Household } from '../models/household-pg-data';
 
 @Component({
   selector: 'app-pg-list',

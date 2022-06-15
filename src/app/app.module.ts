@@ -25,6 +25,7 @@ import { EditHouseholdDataComponent } from './edit-household-data/edit-household
 import { FormsModule } from '@angular/forms';
 import { DatabaseService } from './services/database.service';
 import { CheckInComponent } from './check-in/check-in.component';
+import { PassportListComponent } from './passport-list/passport-list.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { CheckInComponent } from './check-in/check-in.component';
     HouseholdLoginComponent,
     EditHouseholdDataComponent,
     CheckInComponent,
+    PassportListComponent,
   ],
   imports: [
     BrowserModule,
