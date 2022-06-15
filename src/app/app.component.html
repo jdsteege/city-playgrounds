@@ -1,25 +1,17 @@
 <div>
   <div class="ui top fixed menu">
-    <div class="ui simple dropdown item">
+    <div class="ui dropdown item" id="top_menu_dropdown">
       <!-- <div class="text">Menu</div> -->
       <!-- <i class="dropdown icon"></i> -->
       <i class="bars icon"></i>
 
       <div class="menu">
-        <div class="item" *ngIf="isLoggedIn()">
-          <a class="ui primary button" routerLink="/login"
-            >Welcome, {{ householdId }}</a
-          >
+        <div class="item" *ngIf="isLoggedIn()" routerLink="/login">
+          Welcome, {{ householdId }}
         </div>
-        <div class="item" *ngIf="!isLoggedIn()">
-          <a class="ui primary button" routerLink="/login">Log In</a>
-        </div>
+        <div class="item" *ngIf="!isLoggedIn()" routerLink="/login">Log In</div>
 
-        <div class="item">
-          <a class="ui yellow button" routerLink="/passport-list"
-            >Passport List</a
-          >
-        </div>
+        <div class="item" routerLink="/passport-list">Passport List</div>
 
         <div class="item">
           <a
@@ -31,7 +23,7 @@
         </div>
       </div>
     </div>
-    <div class="header item">Ankeny Playgrounds</div>
+    <div class="header item" routerLink="/">Ankeny Playgrounds</div>
   </div>
 
   <div style="padding-top: 4rem">

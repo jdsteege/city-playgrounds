@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from 'src/app/services/database.service';
 import { PlaygroundDef } from '../models/playground-def';
-import { Household } from '../models/household-pg-data';
+import { Household, HouseholdPgData } from '../models/household-pg-data';
 //
 import pgDefsJson from '../../assets/ankeny_playgrounds.json';
 
@@ -78,17 +78,21 @@ export class PgListComponent implements OnInit {
     }
 
     // Sort
-    if (this.sort == 'Nearest' && this.coords) {
+    if (this.coords) {
+      // First sort by distance, to break ties in other sorts.
       this.playgroundDefs = PlaygroundDef.sortDefsByDistance(
         this.playgroundDefs,
         this.coords
       );
-    } else if (this.sort == 'VisitDate' && this.household) {
+    }
+    if (this.sort == 'VisitDate' && this.household) {
       this.playgroundDefs = this.playgroundDefs.sort((a, b) => {
-        return (
-          (this.household.playgrounds[a.id]?.last_visit ?? 0) -
-          (this.household.playgrounds[b.id]?.last_visit ?? 0)
-        );
+        let aHhPg: HouseholdPgData = this.household.playgrounds[a.id];
+        let bHhPg: HouseholdPgData = this.household.playgrounds[b.id];
+        let aVisit: number = aHhPg?.last_visit ?? 0;
+        let bVisit: number = bHhPg?.last_visit ?? 0;
+
+        return aVisit - bVisit;
       });
     }
   }

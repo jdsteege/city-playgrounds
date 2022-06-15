@@ -12,6 +12,14 @@ export class AppComponent {
 
   constructor(private databaseService: DatabaseService) {
     this.householdId = this.databaseService.getHouseholdId();
+
+    setTimeout(() => {
+      this.initDropdown();
+    }, 50);
+  }
+
+  initDropdown(): void {
+    $('#top_menu_dropdown').dropdown({ action: 'hide' });
   }
 
   isLoggedIn(): boolean {
