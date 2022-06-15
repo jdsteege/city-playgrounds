@@ -64,7 +64,7 @@ export class PgListComponent implements OnInit {
   }
 
   onConditionsChanged(): void {
-    console.log('onConditionsChanged');
+    // console.log('onConditionsChanged');
 
     this.playgroundDefs = pgDefsJson.playgrounds;
 
