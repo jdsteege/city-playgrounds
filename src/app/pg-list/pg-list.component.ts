@@ -13,7 +13,10 @@ import pgDefsJson from '../../assets/ankeny_playgrounds.json';
 export class PgListComponent implements OnInit {
   playgroundDefs: PlaygroundDef[] = pgDefsJson.playgrounds;
   household: Household = new Household();
+  coords: GeolocationCoordinates | undefined;
+  //
   filter: ListFilter = new ListFilter();
+  sort: string = 'Nearest';
 
   constructor(private databaseService: DatabaseService) {
     this.databaseService
@@ -21,17 +24,15 @@ export class PgListComponent implements OnInit {
       .snapshotChanges()
       .subscribe((action) => {
         this.household = action.payload.val() ?? new Household();
-        this.onFilterChanged();
+        this.onConditionsChanged();
       });
   }
 
   ngOnInit(): void {
     navigator.geolocation?.watchPosition(
       (position: GeolocationPosition) => {
-        this.playgroundDefs = PlaygroundDef.sortDefsByDistance(
-          this.playgroundDefs,
-          position.coords
-        );
+        this.coords = position.coords;
+        this.onConditionsChanged();
       },
       null,
       {
@@ -62,14 +63,12 @@ export class PgListComponent implements OnInit {
     });
   }
 
-  setFilter(passportEmpty: boolean): void {
-    this.filter = { passportEmpty };
-    this.onFilterChanged();
-  }
+  onConditionsChanged(): void {
+    console.log('onConditionsChanged');
 
-  onFilterChanged(): void {
     this.playgroundDefs = pgDefsJson.playgrounds;
 
+    // Filter
     if (this.filter.passportEmpty && this.household.playgrounds) {
       this.playgroundDefs = this.playgroundDefs.filter(
         (def) =>
@@ -77,6 +76,39 @@ export class PgListComponent implements OnInit {
           this.household.playgrounds[def.id]?.passport.length == 0
       );
     }
+
+    // Sort
+    if (this.sort == 'Nearest' && this.coords) {
+      this.playgroundDefs = PlaygroundDef.sortDefsByDistance(
+        this.playgroundDefs,
+        this.coords
+      );
+    } else if (this.sort == 'VisitDate' && this.household) {
+      this.playgroundDefs = this.playgroundDefs.sort((a, b) => {
+        return (
+          (this.household.playgrounds[a.id]?.last_visit ?? 0) -
+          (this.household.playgrounds[b.id]?.last_visit ?? 0)
+        );
+      });
+    }
+  }
+
+  setFilter(passportEmpty: boolean): void {
+    if (this.filter.passportEmpty == passportEmpty) {
+      return;
+    }
+
+    this.filter = { passportEmpty };
+    this.onConditionsChanged();
+  }
+
+  setSort(sort: string): void {
+    if (this.sort == sort) {
+      return;
+    }
+
+    this.sort = sort;
+    this.onConditionsChanged();
   }
 }
 

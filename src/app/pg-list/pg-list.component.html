@@ -1,10 +1,24 @@
 <div class="ui buttons" id="listFilters">
   <button
-    class="{{ filter.passportEmpty ? 'primary' : '' }} ui button"
+    class="{{ filter.passportEmpty ? 'primary' : 'basic' }} ui button"
     (click)="setFilter(!filter.passportEmpty)"
   >
     <i class="plane icon"></i>
     Passports
+  </button>
+</div>
+
+<div class="ui stackable buttons right floated" id="listSorts">
+  <button
+    class="{{ sort == 'Nearest' ? 'primary' : 'basic' }} ui button"
+    (click)="setSort('Nearest')"
+  >
+    Distance</button
+  ><button
+    class="{{ sort == 'VisitDate' ? 'primary' : 'basic' }} ui button"
+    (click)="setSort('VisitDate')"
+  >
+    Visit Date
   </button>
 </div>
 
