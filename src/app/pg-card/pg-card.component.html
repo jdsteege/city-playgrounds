@@ -12,7 +12,7 @@
     ></a>
   </div>
   <div class="meta">
-    <span *ngIf="hhPgData?.nickname as nick">"{{ nick }}"</span>
+    <span *ngIf="hhPgData?.nickname as nick">"{{ nick.trim() }}"</span>
   </div>
   <div class="description">
     <a target="_blank" href="{{ getGoogleMapsURL() }}">{{
@@ -82,7 +82,7 @@
 
     <div
       class="ui fitted segment"
-      data-tooltip="Days since your last visit"
+      data-tooltip="When you last visited"
       data-position="top center"
     >
       <i class="calendar check icon fitted"></i> {{ getLastVisitString() }}

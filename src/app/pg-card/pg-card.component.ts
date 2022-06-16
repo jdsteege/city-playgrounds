@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { DateTime } from 'luxon';
 import { HouseholdPgData } from '../models/household-pg-data';
 import { PlaygroundDef } from '../models/playground-def';
 
@@ -34,13 +35,27 @@ export class PgCardComponent implements OnInit {
     return 'https://www.google.com/maps/search/' + encodedNameAndAddress;
   }
 
+  // standardizeDate(date: Date): Date {
+  //   date.setUTCHours(11, 0, 0, 0);
+  //   return date;
+  // }
+
   getLastVisitString(): string {
-    if ((this.hhPgData?.last_visit ?? 0) > 0) {
-      let daysSinceVisit: number =
-        (Date.now() - (this.hhPgData?.last_visit ?? 0)) / (24 * 60 * 60 * 1000);
-      return daysSinceVisit.toFixed(0) + ' days ago';
+    if (
+      !this.hhPgData ||
+      !this.hhPgData.last_visit ||
+      this.hhPgData.last_visit == 0
+    ) {
+      return 'Never visited';
     }
 
-    return 'Never visited';
+    // let today: Date = this.standardizeDate(new Date());
+    // let visit: Date = this.standardizeDate(new Date(this.hhPgData.last_visit));
+
+    const visitDT: DateTime = DateTime.fromMillis(this.hhPgData.last_visit);
+    let description: string = visitDT.toRelativeCalendar() ?? '';
+    description = description.charAt(0).toUpperCase() + description.slice(1);
+
+    return description;
   }
 }
