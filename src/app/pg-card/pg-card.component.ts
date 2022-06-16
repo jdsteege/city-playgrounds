@@ -53,7 +53,8 @@ export class PgCardComponent implements OnInit {
     // let visit: Date = this.standardizeDate(new Date(this.hhPgData.last_visit));
 
     const visitDT: DateTime = DateTime.fromMillis(this.hhPgData.last_visit);
-    let description: string = visitDT.toRelativeCalendar() ?? '';
+    let description: string =
+      visitDT.toRelativeCalendar({ unit: 'days' }) ?? '';
     description = description.charAt(0).toUpperCase() + description.slice(1);
 
     return description;

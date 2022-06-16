@@ -79,7 +79,7 @@ export class CheckInComponent implements OnInit {
                 style="margin: 0rem 1rem 1rem 0rem; width: fit-content"
               >
                 <i class="calendar alternate icon"></i>
-                <input type="text" placeholder="Date" id="visit_date_input" />
+                <input type="text" placeholder="Date" autocomplete="off" id="visit_date_input" />
               </div>
               <button
                 class="ui mini basic circular icon button"
@@ -100,18 +100,18 @@ export class CheckInComponent implements OnInit {
             </div>
           </div>
           <div class="field">
-            <label><i class="sticky note icon"></i> Notes</label>
-            <div class="ui input">
-              <input type="text" placeholder="Notes" id="notes_input" autocomplete="off" value="` +
-      (this.hhPgData?.notes ?? '') +
-      `" />
-            </div>
-          </div>
-          <div class="field">
             <label><i class="comment icon"></i> Nickname</label>
             <div class="ui input">
               <input type="text" placeholder="Nickname" id="nickname_input" autocomplete="off" value="` +
       (this.hhPgData?.nickname ?? '') +
+      `" />
+            </div>
+          </div>
+          <div class="field">
+            <label><i class="sticky note icon"></i> Notes</label>
+            <div class="ui input">
+              <input type="text" placeholder="Notes" id="notes_input" autocomplete="off" value="` +
+      (this.hhPgData?.notes ?? '') +
       `" />
             </div>
           </div>
@@ -152,7 +152,7 @@ export class CheckInComponent implements OnInit {
 
     (<any>$('#visit_date_calendar')).calendar(
       'set date',
-      this.defaultVisitDate(),
+      this.initialVisitDate(),
       true,
       false
     );
@@ -166,60 +166,24 @@ export class CheckInComponent implements OnInit {
     addEventListener('hashchange', this.hideModal);
   }
 
-  defaultVisitDate(): Date {
-    let result: Date = new Date();
+  initialVisitDate(): Date | null {
     let distance = PlaygroundDef.distanceToCoords(this.pgDef, this.geoCoords);
     // console.log(distance + ' miles');
 
-    if (
-      distance > 0.2 &&
-      this.hhPgData?.last_visit &&
-      this.hhPgData?.last_visit > 0
-    ) {
-      // User is not at playground
-      result = new Date(this.hhPgData?.last_visit);
+    if (distance < 0.2) {
+      // User is at playground, return today.
+      return new Date();
+    } else if (this.hhPgData?.last_visit && this.hhPgData?.last_visit > 0) {
+      // User is not at playground and has visited
+      return new Date(this.hhPgData.last_visit);
+    } else {
+      return null;
     }
-
-    return result;
   }
-
-  // showModal(): void {
-  //   $('#modal_check_in')
-  //     .modal({
-  //       autofocus: false,
-  //       duration: 0,
-  //     })
-  //     .modal('show');
-  //   (<any>$('#visit_date_calendar')).calendar({
-  //     selectAdjacentDays: true,
-  //     type: 'date',
-  //     today: true,
-  //     on: 'click',
-  //   });
-  //   (<any>$('#visit_date_calendar')).calendar(
-  //     'set date',
-  //     new Date(),
-  //     true,
-  //     false
-  //   );
-
-  //   $('#passport_input').val(this.hhPgData?.passport ?? '');
-  //   $('#notes_input').val(this.hhPgData?.notes ?? '');
-  //   $('#nickname_input').val(this.hhPgData?.nickname ?? '');
-  // }
 
   clearVisitDate(): void {
     (<any>$('#visit_date_calendar')).calendar('clear');
   }
-
-  // todayVisitDate(): void {
-  //   (<any>$('#visit_date_calendar')).calendar(
-  //     'set date',
-  //     new Date(),
-  //     true,
-  //     true
-  //   );
-  // }
 
   submit(): void {
     let userCalendarDate: Date | null = (<any>(
