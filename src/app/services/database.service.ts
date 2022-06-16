@@ -9,35 +9,37 @@ import { Household, HouseholdPgData } from '../models/household-pg-data';
   providedIn: 'root',
 })
 export class DatabaseService {
-  private householdId: string = localStorage.getItem('householdId') ?? '';
-
   constructor(private db: AngularFireDatabase) {}
 
-  hasHousehold(): boolean {
-    return this.householdId.length > 0;
-  }
-
   getHousehold(): AngularFireObject<Household> {
-    return this.db.object('/households/' + this.householdId);
+    return this.db.object('/households/' + this.getHouseholdId());
   }
 
   get(pgId: string): AngularFireObject<HouseholdPgData> {
     return this.db.object(
-      '/households/' + this.householdId + '/playgrounds/' + pgId
+      '/households/' + this.getHouseholdId() + '/playgrounds/' + pgId
     );
   }
 
   update(pgId: string, value: any): Promise<void> {
     return this.db
-      .object('/households/' + this.householdId + '/playgrounds/' + pgId)
+      .object('/households/' + this.getHouseholdId() + '/playgrounds/' + pgId)
       .update(value);
   }
 
+  hasHousehold(): boolean {
+    return (localStorage.getItem('householdId') ?? '').length > 0;
+  }
+
   getHouseholdId(): string {
-    return this.householdId;
+    if (!this.hasHousehold()) {
+      return 'default';
+    } else {
+      return localStorage.getItem('householdId') ?? 'default';
+    }
   }
 
   setHouseholdId(id: string): void {
-    this.householdId = id;
+    localStorage.setItem('householdId', id);
   }
 }

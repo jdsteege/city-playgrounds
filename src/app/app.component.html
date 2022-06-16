@@ -7,7 +7,7 @@
 
       <div class="menu">
         <div class="item" *ngIf="isLoggedIn()" routerLink="/login">
-          Welcome, {{ householdId }}
+          Welcome, {{ getHouseholdId() }}
         </div>
         <div class="item" *ngIf="!isLoggedIn()" routerLink="/login">Log In</div>
 

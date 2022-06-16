@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { HouseholdPgData } from '../models/household-pg-data';
 import { PlaygroundDef } from '../models/playground-def';
 import { DatabaseService } from '../services/database.service';
@@ -14,7 +15,10 @@ export class CheckInComponent implements OnInit {
   @Input() compact: boolean = false;
   private geoCoords: GeolocationCoordinates | undefined;
 
-  constructor(private databaseService: DatabaseService) {}
+  constructor(
+    private router: Router,
+    private databaseService: DatabaseService
+  ) {}
 
   ngOnInit(): void {
     navigator.geolocation?.getCurrentPosition(
@@ -28,6 +32,30 @@ export class CheckInComponent implements OnInit {
         maximumAge: 60 * 1000,
       }
     );
+  }
+
+  doCheckIn(): void {
+    if (this.databaseService.hasHousehold()) {
+      this.showModal();
+    } else {
+      this.showLoginMessageToast();
+    }
+  }
+
+  showLoginMessageToast(): void {
+    (<any>$('body')).toast({
+      message: 'Please log in to continue.',
+      classActions: 'bottom attached',
+      actions: [
+        {
+          text: 'Log In',
+          class: 'primary',
+          click: () => {
+            this.router.navigateByUrl('/login');
+          },
+        },
+      ],
+    });
   }
 
   hideModal(event: HashChangeEvent): void {

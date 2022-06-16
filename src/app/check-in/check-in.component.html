@@ -1,7 +1,7 @@
 <div
   class="ui primary button"
   style="border-radius: 2rem"
-  (click)="showModal()"
+  (click)="doCheckIn()"
   *ngIf="!compact"
 >
   <i class="check icon"></i>Check In
@@ -9,7 +9,7 @@
 
 <a
   class="ui mini icon compact basic primary button"
-  (click)="showModal()"
+  (click)="doCheckIn()"
   *ngIf="compact"
 >
   <i class="edit icon"></i>

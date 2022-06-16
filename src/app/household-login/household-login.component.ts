@@ -20,7 +20,6 @@ export class HouseholdLoginComponent implements OnInit {
   onSubmit(): void {
     this.hhidInput = this.hhidInput.toLowerCase();
     this.databaseService.setHouseholdId(this.hhidInput);
-    localStorage.setItem('householdId', this.hhidInput);
     this.router.navigateByUrl('/');
   }
 }
