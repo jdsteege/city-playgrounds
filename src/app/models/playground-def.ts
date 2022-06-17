@@ -5,6 +5,7 @@ export class PlaygroundDef {
   address: string;
   latitude: number;
   longitude: number;
+  passportIndex: number;
   restroom: string;
   splashpad: boolean;
 
@@ -15,6 +16,7 @@ export class PlaygroundDef {
     this.address = '';
     this.latitude = 0;
     this.longitude = 0;
+    this.passportIndex = 9999;
     this.restroom = 'None';
     this.splashpad = false;
   }
