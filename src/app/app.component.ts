@@ -8,22 +8,17 @@ import { DatabaseService } from './services/database.service';
 })
 export class AppComponent {
   title = 'City Playgrounds';
+  db: DatabaseService;
 
   constructor(private databaseService: DatabaseService) {
+    this.db = databaseService;
+
     setTimeout(() => {
       this.initDropdown();
     }, 50);
   }
 
-  getHouseholdId(): string {
-    return this.databaseService.getHouseholdId();
-  }
-
   initDropdown(): void {
     $('#top_menu_dropdown').dropdown({ action: 'hide' });
-  }
-
-  isLoggedIn(): boolean {
-    return this.getHouseholdId().length > 0;
   }
 }

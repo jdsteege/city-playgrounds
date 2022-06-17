@@ -8,12 +8,17 @@ import { DatabaseService } from '../services/database.service';
   styleUrls: ['./household-login.component.scss'],
 })
 export class HouseholdLoginComponent implements OnInit {
-  hhidInput: string = this.databaseService.getHouseholdId();
+  hhidInput: string;
 
   constructor(
     private router: Router,
     private databaseService: DatabaseService
-  ) {}
+  ) {
+    this.hhidInput = this.databaseService.getHouseholdId();
+    if (this.hhidInput == 'offline') {
+      this.hhidInput = '';
+    }
+  }
 
   ngOnInit(): void {}
 

@@ -9,7 +9,37 @@ import { Household, HouseholdPgData } from '../models/household-pg-data';
   providedIn: 'root',
 })
 export class DatabaseService {
-  constructor(private db: AngularFireDatabase) {}
+  isOnline: boolean = false;
+
+  constructor(private db: AngularFireDatabase) {
+    this.setupOnlineRef();
+
+    if (!this.hasHousehold()) {
+      db.database.goOffline();
+    }
+  }
+
+  setupOnlineRef(): void {
+    this.db
+      .object('.info/connected')
+      .snapshotChanges()
+      .subscribe((data) => {
+        this.isOnline = Boolean(data.payload.val());
+        console.log('isOnline: ' + this.isOnline);
+      });
+  }
+
+  toggleConnection(): void {
+    if (this.isOnline) {
+      this.db.database.goOffline();
+    } else {
+      this.db.database.goOnline();
+    }
+  }
+
+  isConnected(): boolean {
+    return this.hasHousehold() && this.isOnline;
+  }
 
   getHousehold(): AngularFireObject<Household> {
     return this.db.object('/households/' + this.getHouseholdId());
@@ -33,13 +63,18 @@ export class DatabaseService {
 
   getHouseholdId(): string {
     if (!this.hasHousehold()) {
-      return 'default';
+      return 'offline';
     } else {
-      return localStorage.getItem('householdId') ?? 'default';
+      return localStorage.getItem('householdId') ?? 'offline';
     }
   }
 
   setHouseholdId(id: string): void {
     localStorage.setItem('householdId', id);
+    if (this.hasHousehold()) {
+      this.db.database.goOnline();
+    } else {
+      this.db.database.goOffline();
+    }
   }
 }

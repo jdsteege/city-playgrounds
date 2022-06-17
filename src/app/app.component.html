@@ -6,10 +6,12 @@
       <i class="bars icon"></i>
 
       <div class="menu">
-        <div class="item" *ngIf="isLoggedIn()" routerLink="/login">
-          Welcome, {{ getHouseholdId() }}
+        <div class="item" *ngIf="db.hasHousehold()" routerLink="/login">
+          Welcome, {{ db.getHouseholdId() }}
         </div>
-        <div class="item" *ngIf="!isLoggedIn()" routerLink="/login">Log In</div>
+        <div class="item" *ngIf="!db.hasHousehold()" routerLink="/login">
+          Log In
+        </div>
 
         <div class="item" routerLink="/passport-list">Passport List</div>
 
@@ -24,6 +26,36 @@
       </div>
     </div>
     <div class="header item" routerLink="/">Ankeny Playgrounds</div>
+
+    <div class="right floated borderless item">
+      <i
+        class="ui icons"
+        data-tooltip="Online - All changes are synced"
+        data-position="bottom right"
+        *ngIf="db.hasHousehold() && db.isOnline"
+      >
+        <i class="cloud primary icon"></i>
+      </i>
+      <i
+        class="ui icons"
+        data-tooltip="Offline - Changes are saved locally and will sync when online"
+        data-position="bottom right"
+        *ngIf="db.hasHousehold() && !db.isOnline"
+      >
+        <i class="cloud orange icon"></i>
+        <i class="times corner icon"></i>
+      </i>
+      <i
+        class="ui icons"
+        data-tooltip="Local Only - Click to login"
+        data-position="bottom right"
+        *ngIf="!db.hasHousehold()"
+      >
+        <a class="ui" routerLink="/login">
+          <i class="cloud inverted grey icon"></i>
+        </a>
+      </i>
+    </div>
   </div>
 
   <div style="padding-top: 4rem">
