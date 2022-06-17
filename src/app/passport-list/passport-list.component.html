@@ -1,26 +1,25 @@
-<table class="ui unstackable table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Status</th>
-      <th class="right aligned">Notes</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>John</td>
-      <td>Approved</td>
-      <td class="right aligned">None</td>
-    </tr>
-    <tr>
-      <td>Jamie</td>
-      <td>Approved</td>
-      <td class="right aligned">Requires call</td>
-    </tr>
-    <tr>
-      <td>Jill</td>
-      <td>Denied</td>
-      <td class="right aligned">None</td>
-    </tr>
-  </tbody>
-</table>
+<div class="ui" style="margin-left: 1rem">
+  <button class="ui primary button" routerLink="/">
+    <i class="ui chevron left icon"></i> Back
+  </button>
+</div>
+
+<div class="ui" style="max-width: 400px; margin: auto; padding: 1rem">
+  <table class="ui unstackable striped compact yellow table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Passport</th>
+        <!-- <th class="right aligned">Passport</th> -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pgDef of playgroundDefs">
+        <td>{{ pgDef.name }}</td>
+        <td>
+          {{ household.playgrounds[pgDef.id]?.passport }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

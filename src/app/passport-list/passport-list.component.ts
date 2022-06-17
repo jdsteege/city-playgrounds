@@ -3,6 +3,7 @@ import { Household } from '../models/household-pg-data';
 import { PlaygroundDef } from '../models/playground-def';
 import pgDefsJson from '../../assets/ankeny_playgrounds.json';
 import { DatabaseService } from '../services/database.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-passport-list',
@@ -13,7 +14,10 @@ export class PassportListComponent implements OnInit {
   playgroundDefs: PlaygroundDef[] = pgDefsJson.playgrounds;
   household: Household = new Household();
 
-  constructor(private databaseService: DatabaseService) {
+  constructor(
+    private databaseService: DatabaseService,
+    private location: Location
+  ) {
     this.databaseService
       .getHousehold()
       .snapshotChanges()
@@ -22,5 +26,17 @@ export class PassportListComponent implements OnInit {
       });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.playgroundDefs = this.playgroundDefs
+      .filter((value) => {
+        return value.passportIndex < 99;
+      })
+      .sort((a, b) => {
+        return a.passportIndex - b.passportIndex;
+      });
+  }
+
+  goBack(): void {
+    this.location.back();
+  }
 }
