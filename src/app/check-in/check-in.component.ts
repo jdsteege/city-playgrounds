@@ -71,7 +71,7 @@ export class CheckInComponent implements OnInit {
       `
       <div class="description">
         <form class="ui form">
-          <div class="field">
+          <div class="field" id="visit_date_field">
             <label><i class="calendar day icon"></i> Visit Date</label>
             <div class="ui calendar" id="visit_date_calendar">
               <div
@@ -150,12 +150,17 @@ export class CheckInComponent implements OnInit {
       on: 'click',
     });
 
+    let [initialDate, isToday] = this.initialVisitDate();
     (<any>$('#visit_date_calendar')).calendar(
       'set date',
-      this.initialVisitDate(),
+      initialDate,
       true,
       false
     );
+
+    if (isToday) {
+      $('#visit_date_field').addClass('success');
+    }
 
     $('#visit_date_clear_button').on('click', () => {
       this.clearVisitDate();
@@ -166,18 +171,18 @@ export class CheckInComponent implements OnInit {
     addEventListener('hashchange', this.hideModal);
   }
 
-  initialVisitDate(): Date | null {
+  initialVisitDate(): [Date | null, boolean] {
     let distance = PlaygroundDef.distanceToCoords(this.pgDef, this.geoCoords);
     // console.log(distance + ' miles');
 
     if (distance < 0.2) {
       // User is at playground, return today.
-      return new Date();
+      return [new Date(), true];
     } else if (this.hhPgData?.last_visit && this.hhPgData?.last_visit > 0) {
       // User is not at playground and has visited
-      return new Date(this.hhPgData.last_visit);
+      return [new Date(this.hhPgData.last_visit), false];
     } else {
-      return null;
+      return [null, false];
     }
   }
 
