@@ -101,10 +101,13 @@ export class CheckInComponent implements OnInit {
           </div>
           <div class="field">
             <label><i class="comment icon"></i> Nickname</label>
-            <div class="ui input">
+            <div class="ui right labeled input">
               <input type="text" placeholder="Nickname" id="nickname_input" autocomplete="off" value="` +
       (this.hhPgData?.nickname ?? '') +
       `" />
+              <div class="ui label">
+                Playground
+              </div>
             </div>
           </div>
           <div class="field">

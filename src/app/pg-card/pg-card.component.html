@@ -12,7 +12,9 @@
     ></a>
   </div>
   <div class="meta">
-    <span *ngIf="hhPgData?.nickname as nick">"{{ nick.trim() }}"</span>
+    <span *ngIf="hhPgData?.nickname as nick"
+      >"{{ nick.trim() }}" Playground</span
+    >
   </div>
   <div class="description">
     <a target="_blank" href="{{ getGoogleMapsURL() }}">{{
