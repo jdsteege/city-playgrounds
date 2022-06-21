@@ -14,6 +14,7 @@ import { AngularFireObject } from '@angular/fire/compat/database';
 })
 export class DashboardComponent implements OnInit, OnDestroy {
   private playgroundDefs: PlaygroundDef[] = pgDefsJson.playgrounds;
+  geoCoords: GeolocationCoordinates | undefined = undefined;
   nearestPgDef: PlaygroundDef = pgDefsJson.playgrounds[0];
   nearestDistance: number = 0;
 
@@ -27,6 +28,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     navigator.geolocation?.watchPosition(
       (position: GeolocationPosition) => {
+        this.geoCoords = position.coords;
         this.findNearest(position.coords);
       },
       null,

@@ -13,7 +13,7 @@ export class CheckInComponent implements OnInit {
   @Input() pgDef: PlaygroundDef = new PlaygroundDef();
   @Input() hhPgData: HouseholdPgData | null = null;
   @Input() compact: boolean = false;
-  private geoCoords: GeolocationCoordinates | undefined;
+  @Input() geoCoords: GeolocationCoordinates | undefined = undefined;
 
   constructor(
     private router: Router,
@@ -21,17 +21,17 @@ export class CheckInComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    navigator.geolocation?.getCurrentPosition(
-      (position: GeolocationPosition) => {
-        this.geoCoords = position.coords;
-      },
-      null,
-      {
-        enableHighAccuracy: false,
-        timeout: Infinity,
-        maximumAge: 60 * 1000,
-      }
-    );
+    // navigator.geolocation?.getCurrentPosition(
+    //   (position: GeolocationPosition) => {
+    //     this.geoCoords = position.coords;
+    //   },
+    //   null,
+    //   {
+    //     enableHighAccuracy: false,
+    //     timeout: Infinity,
+    //     maximumAge: 60 * 1000,
+    //   }
+    // );
   }
 
   doCheckIn(): void {
@@ -71,12 +71,13 @@ export class CheckInComponent implements OnInit {
       `
       <div class="description">
         <form class="ui form">
+        
           <div class="field" id="visit_date_field">
             <label><i class="calendar day icon"></i> Visit Date</label>
             <div class="ui calendar" id="visit_date_calendar">
               <div
                 class="ui input left icon"
-                style="margin: 0rem 1rem 1rem 0rem; width: fit-content"
+                style="margin: 0rem 1rem 0rem 0rem; width: fit-content"
               >
                 <i class="calendar alternate icon"></i>
                 <input type="text" placeholder="Date" autocomplete="off" id="visit_date_input" />
@@ -91,6 +92,7 @@ export class CheckInComponent implements OnInit {
               </button>
             </div>
           </div>
+
           <div class="field">
             <label><i class="plane icon"></i> Passport</label>
             <div class="ui input">
@@ -99,6 +101,7 @@ export class CheckInComponent implements OnInit {
       `" />
             </div>
           </div>
+
           <div class="field">
             <label><i class="comment icon"></i> Nickname</label>
             <div class="ui right labeled input">
@@ -110,7 +113,8 @@ export class CheckInComponent implements OnInit {
               </div>
             </div>
           </div>
-          <div class="field">
+
+          <div class="field" style="margin: 0">
             <label><i class="sticky note icon"></i> Notes</label>
             <div class="ui input">
               <input type="text" placeholder="Notes" id="notes_input" autocomplete="off" value="` +
@@ -118,6 +122,9 @@ export class CheckInComponent implements OnInit {
       `" />
             </div>
           </div>
+
+          <input type="submit" style="display: none" />
+
         </form>
       </div>`;
 

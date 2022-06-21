@@ -11,6 +11,7 @@ import { PlaygroundDef } from '../models/playground-def';
 export class PgCardComponent implements OnInit {
   @Input() pgDef: PlaygroundDef = new PlaygroundDef();
   @Input() hhPgData: HouseholdPgData | null = null;
+  @Input() geoCoords: GeolocationCoordinates | undefined = undefined;
 
   constructor() {}
 

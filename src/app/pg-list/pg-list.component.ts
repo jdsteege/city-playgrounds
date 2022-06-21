@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 import { DatabaseService } from 'src/app/services/database.service';
 import { PlaygroundDef } from '../models/playground-def';
 import { Household, HouseholdPgData } from '../models/household-pg-data';
@@ -10,10 +16,10 @@ import pgDefsJson from '../../assets/ankeny_playgrounds.json';
   templateUrl: './pg-list.component.html',
   styleUrls: ['./pg-list.component.scss'],
 })
-export class PgListComponent implements OnInit {
+export class PgListComponent implements OnInit, OnChanges {
   playgroundDefs: PlaygroundDef[] = pgDefsJson.playgrounds;
   household: Household = new Household();
-  coords: GeolocationCoordinates | undefined;
+  @Input() geoCoords: GeolocationCoordinates | undefined;
   //
   filter: ListFilter = new ListFilter();
   sort: string = 'Nearest';
@@ -29,22 +35,33 @@ export class PgListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    navigator.geolocation?.watchPosition(
-      (position: GeolocationPosition) => {
-        this.coords = position.coords;
-        this.onConditionsChanged();
-      },
-      null,
-      {
-        enableHighAccuracy: false,
-        timeout: Infinity,
-        maximumAge: 60 * 1000,
-      }
-    );
+    // navigator.geolocation?.watchPosition(
+    //   (position: GeolocationPosition) => {
+    //     this.geoCoords = position.coords;
+    //     this.onConditionsChanged();
+    //   },
+    //   null,
+    //   {
+    //     enableHighAccuracy: false,
+    //     timeout: Infinity,
+    //     maximumAge: 60 * 1000,
+    //   }
+    // );
 
     setTimeout(() => {
       this.scrollToTargetAdjusted('listFilters');
     }, 50);
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['geoCoords'] != null) {
+      // console.log(
+      //   'previousValue ' + changes['geoCoords'].previousValue?.latitude
+      // );
+      // console.log('currentValue ' + changes['geoCoords'].currentValue.latitude);
+
+      this.onConditionsChanged();
+    }
   }
 
   // https://stackoverflow.com/a/49860927/19036171
@@ -78,11 +95,11 @@ export class PgListComponent implements OnInit {
     }
 
     // Sort
-    if (this.coords) {
+    if (this.geoCoords) {
       // First sort by distance, to break ties in other sorts.
       this.playgroundDefs = PlaygroundDef.sortDefsByDistance(
         this.playgroundDefs,
-        this.coords
+        this.geoCoords
       );
     }
     if (this.sort == 'VisitDate' && this.household) {

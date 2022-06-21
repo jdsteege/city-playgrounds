@@ -25,7 +25,7 @@ export class DatabaseService {
       .snapshotChanges()
       .subscribe((data) => {
         this.isOnline = Boolean(data.payload.val());
-        console.log('isOnline: ' + this.isOnline);
+        // console.log('isOnline: ' + this.isOnline);
       });
   }
 

@@ -9,12 +9,14 @@
     [pgDef]="nearestPgDef"
     [hhPgData]="householdPlaygroundData"
     class="ui centered raised card"
+    [geoCoords]="geoCoords"
   ></app-pg-card>
 
   <app-check-in
     [pgDef]="nearestPgDef"
     [hhPgData]="householdPlaygroundData"
     [compact]="false"
+    [geoCoords]="geoCoords"
   ></app-check-in>
 </div>
 
@@ -25,6 +27,6 @@
     </div>
   </div>
   <div *ngIf="showList">
-    <app-pg-list></app-pg-list>
+    <app-pg-list [geoCoords]="geoCoords"></app-pg-list>
   </div>
 </div>

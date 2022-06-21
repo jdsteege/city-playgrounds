@@ -38,7 +38,7 @@ export class PlaygroundDef {
     coords: GeolocationCoordinates | undefined
   ): number {
     if (!coords) {
-      return -1;
+      return 999;
     }
 
     return PlaygroundDef.distanceToLatLong(
