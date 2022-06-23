@@ -70,7 +70,7 @@ export class CheckInComponent implements OnInit {
     let modalContent: string =
       `
       <div class="description">
-        <form class="ui form">
+        <form class="ui form" id="modal_form">
         
           <div class="field" id="visit_date_field">
             <label><i class="calendar day icon"></i> Visit Date</label>
@@ -176,6 +176,12 @@ export class CheckInComponent implements OnInit {
       this.clearVisitDate();
     });
 
+    $('#modal_form').on('submit', () => {
+      this.submit();
+      (<any>$('.ui.modal')).modal('hide');
+      return false;
+    });
+
     // Close modal on browser back button
     location.hash = 'modal';
     addEventListener('hashchange', this.hideModal);
@@ -201,6 +207,8 @@ export class CheckInComponent implements OnInit {
   }
 
   submit(): void {
+    // console.log('submit');
+
     let userCalendarDate: Date | null = (<any>(
       $('#visit_date_calendar')
     )).calendar('get date');
